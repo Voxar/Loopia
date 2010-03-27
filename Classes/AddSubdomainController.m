@@ -33,13 +33,18 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveAction)];
-  UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(cancelAction)];
+  UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelAction)];
   
   self.navigationItem.leftBarButtonItem = cancelButton;
   self.navigationItem.rightBarButtonItem = saveButton;
   
   [saveButton release];
   [cancelButton release];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+  [textField becomeFirstResponder];
 }
 
 -(void)cancelAction;

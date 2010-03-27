@@ -253,4 +253,18 @@ NSString const * LoopiaDomainDomainConfigurationHOSTING_WINDOWS = @"HOSTING_WIND
   return ret != nil;
 }
 
+-(BOOL)removeSubdomainName:(NSString*)subdomain forDomainName:(NSString *)domain;
+{
+  id ret = [self call:@"removeSubdomain" args:[NSArray arrayWithObjects:domain, subdomain, nil]];
+  NSLog(@"removeSubdomainName returned %@", ret);
+  return ret != nil;
+}
+
+-(BOOL)removeZoneRecord:(LPDNSEntry*)zone forDomainName:(NSString *)domainName subdomainName:(NSString *)subdomainName;
+{
+  id ret = [self call:@"removeZoneRecord" args:[NSArray arrayWithObjects:domainName, subdomainName, zone.record_id, nil]];
+  NSLog(@"removeZoneRecord returned %@", ret);
+  return ret != nil;
+}
+
 @end

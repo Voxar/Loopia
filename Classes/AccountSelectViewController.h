@@ -18,6 +18,6 @@
 @property (nonatomic, retain) NSMutableArray *accounts;
 
 -(void)addAccount;
--(void)editAccount:(LPAccount*)account;
+-(void)editAccount:(LPAccount*)account modal:(BOOL)modal;
 
 @end

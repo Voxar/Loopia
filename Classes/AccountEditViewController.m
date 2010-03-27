@@ -30,6 +30,7 @@
   [usernameField resignFirstResponder];
   [passwordField resignFirstResponder];
   [self.navigationController popViewControllerAnimated:YES];
+  [self dismissModalViewControllerAnimated:YES];
   
   NSLog(@"user: '%@' pass: '%@'", account.username, account.password);
 }
@@ -37,6 +38,7 @@
 -(void)cancel
 {
   [self.navigationController popViewControllerAnimated:YES];
+  [self dismissModalViewControllerAnimated:YES];
 }
 
 - (void)viewDidLoad {

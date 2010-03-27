@@ -35,6 +35,13 @@
 */
 
 
+-(void)setEditing:(BOOL)editing animated:(BOOL)animated
+{
+  [super setEditing:editing animated:animated];
+  //[self.navigationController setToolbarHidden:!editing animated:animated];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -47,17 +54,32 @@
   payButton.enabled = !domain.paid;
   payButton.titleLabel.text = domain.paid ? @"Betalad" : [NSString stringWithFormat:@"Betala %d Kr", domain.unpaidAmount];
   
+  
+  UIBarButtonItem *spaceButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
   UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addSubdomain)];
-  self.navigationItem.rightBarButtonItem = addButton;
+  [self setToolbarItems:[NSArray arrayWithObjects:spaceButton, addButton, nil]];
+  [addButton release];
+  [spaceButton release];
+  
+  self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 -(void)addSubdomain;
 {
-  AddSubdomainController *addSubdomainController = [[AddSubdomainController alloc] initWithDomain:domain.name];
+  AddSubdomainController *addSubdomainController = [[AddSubdomainController alloc] initWithDomain:domain];
+  addSubdomainController.delegate = self;
   UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:addSubdomainController];
   [self presentModalViewController:nav animated:YES];
   [addSubdomainController release];
   [nav release];
+}
+
+-(void)addSubdomain:(AddSubdomainController*)controller savedSubdomain:(LPSubdomain *)savedSubdomain withSuccess:(BOOL)success;
+{
+  if(success){
+    self.subdomains = [subdomains arrayByAddingObject:savedSubdomain];
+    [self.tableView reloadData];
+  }
 }
 
 /*
@@ -177,20 +199,27 @@
 }
 */
 
-
-/*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
+      // Delete the row from the data source
+      LPSubdomain *subdomain = [subdomains objectAtIndex:indexPath.row];
+      NSLog(@"removing subdomain %@", subdomain);
+      BOOL success = [[LoopiaAppDelegate sharedAPI] removeSubdomainName:subdomain.name forDomainName:domain.name];
+      NSLog(success ? @"OK" : @"FAIL");
+      if(success){
+        NSMutableArray *mutableSubdomains = [subdomains mutableCopyWithZone:nil];
+        [mutableSubdomains removeObject:subdomain];
+        self.subdomains = mutableSubdomains;
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+      }
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
 
 
 /*

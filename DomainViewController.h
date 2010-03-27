@@ -10,8 +10,9 @@
 #import "Loopia.h"
 
 #import "TabeViewControllerWithBackgroundLoading.h"
+#import "AddSubdomainController.h"
 
-@interface DomainViewController : TabeViewControllerWithBackgroundLoading {
+@interface DomainViewController : TabeViewControllerWithBackgroundLoading <AddSubdomainDelegate> {
   LPDomain *domain;
   NSArray *subdomains;
   

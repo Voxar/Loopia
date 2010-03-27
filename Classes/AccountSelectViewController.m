@@ -32,13 +32,18 @@
   newAccount = [[LPAccount alloc] init];
   [accounts addObject:newAccount];
   //nevigate to edit account
-  [self editAccount:newAccount];
+  [self editAccount:newAccount modal:YES];
 }
 
--(void)editAccount:(LPAccount*)account;
+-(void)editAccount:(LPAccount*)account modal:(BOOL)modal;
 {
   AccountEditViewController *editAccountController = [[AccountEditViewController alloc] initWithAccount:account];
-  [self.navigationController pushViewController:editAccountController animated:YES];
+  if(modal){
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:editAccountController];
+    [self presentModalViewController:nav animated:YES];
+    [nav release];
+  } else
+    [self.navigationController pushViewController:editAccountController animated:YES];
   [editAccountController release];
 }
 
@@ -51,12 +56,22 @@
   // self.navigationItem.rightBarButtonItem = self.editButtonItem;
   self.accounts = [[LoopiaAppDelegate standardLoopiaAppDelegate] accounts];
   
-  //Add button
-  UIBarButtonItem *addButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addAccount)] autorelease];
-  [[self navigationItem] setRightBarButtonItem:addButton];
-  [[self navigationItem] setLeftBarButtonItem:[self editButtonItem]];
+  [[self navigationItem] setRightBarButtonItem:[self editButtonItem]];
+  
+  UIBarButtonItem *spaceButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+  UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addAccount)];
+  [self setToolbarItems:[NSArray arrayWithObjects:spaceButton, addButton, nil]];
+  [addButton release];
+  [spaceButton release];
+  
+  
 }
 
+-(void)setEditing:(BOOL)editing animated:(BOOL)animated
+{
+  [super setEditing:editing animated:animated];
+//  [self.navigationController setToolbarHidden:!editing animated:animated];
+}
 
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -199,7 +214,7 @@
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
   LPAccount *account = [accounts objectAtIndex:[indexPath row]];
-  [self editAccount:account];
+  [self editAccount:account modal:NO];
 }
 
 

@@ -301,7 +301,7 @@
 
 - (NSString *)encodeNumber: (NSNumber *)number
 {
-	return [self valueTag: @"i4" value: [number stringValue]];
+	return [self valueTag: @"int" value: [number stringValue]];
 }
 
 - (NSString *)encodeString: (NSString *)string

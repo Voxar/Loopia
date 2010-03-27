@@ -11,6 +11,7 @@
 #import "AddZoneViewController.h"
 #import "LPDNSEntry.h"
 #import "AddSubdomainController.h"
+#import "LoopiaAppDelegate.h"
 
 @implementation SubDomainDetailViewController
 
@@ -43,12 +44,22 @@
   [super viewDidLoad];
 
   // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-  self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
-                                                                                         target:self 
-                                                                                         action:@selector(addItem:)] autorelease];
+  self.navigationItem.rightBarButtonItem = self.editButtonItem;
+  UIBarButtonItem *spaceButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+  UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addItem)];
+  [self setToolbarItems:[NSArray arrayWithObjects:spaceButton, addButton, nil]];
+  [addButton release];
+  [spaceButton release];  
 }
 
--(void)addItem:(id)sender;
+-(void)setEditing:(BOOL)editing animated:(BOOL)animated
+{
+  [super setEditing:editing animated:animated];
+//  [self.navigationController setToolbarHidden:!editing animated:animated];
+}
+
+
+-(void)addItem;
 {
   LPDNSEntry *newEntry = [[LPDNSEntry alloc] init];
   AddZoneViewController *zoneView = [[AddZoneViewController alloc] initWithDNSEntry:newEntry forDomain:domain subdomain:subdomain];
@@ -63,9 +74,7 @@
 {
   if(newEntry){
     if(![zoneInfoArray containsObject:newEntry]){
-      NSMutableArray *mutableZones = [zoneInfoArray mutableCopyWithZone:nil];
-      [mutableZones addObject:newEntry];
-      self.zoneInfoArray = mutableZones;
+      self.zoneInfoArray = [zoneInfoArray arrayByAddingObject:newEntry];
     }
     [(UITableView*)self.view reloadData];
   }
@@ -170,11 +179,22 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
+      // Delete the row from the data source
+      
+      LPDNSEntry *entry = [zoneInfoArray objectAtIndex:indexPath.row];
+      NSLog(@"removing zone %@", entry);
+      BOOL success = [[LoopiaAppDelegate sharedAPI] removeZoneRecord:entry forDomainName:domain.name subdomainName:subdomain.name];
+      NSLog(success ? @"OK" : @"FAIL");
+      if(success){
+        NSMutableArray *mutableZones = [zoneInfoArray mutableCopyWithZone:nil];
+        [mutableZones removeObjectAtIndex:indexPath.row];
+        self.zoneInfoArray = mutableZones;
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+      }
+      
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+      // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
 

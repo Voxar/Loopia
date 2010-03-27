@@ -65,10 +65,11 @@ extern NSString const * LoopiaDomainDomainConfigurationHOSTING_WINDOWS;
 -(BOOL)updateZoneRecord:(LPDNSEntry *)record forDomainName:(NSString *)domainName subdomainName:(NSString*)subdomain;
 -(BOOL)addZoneRecord:(LPDNSEntry *)record forDomainName:(NSString *)domain subdomainName:(NSString*)subdomain;
 -(BOOL)addSubdomainName:(NSString *)subdomain forDomainName:(NSString *)domain;
+-(BOOL)removeSubdomainName:(NSString*)subdomain forDomainName:(NSString *)domain;
+-(BOOL)removeZoneRecord:(LPDNSEntry*)zone forDomainName:(NSString *)domainName subdomainName:(NSString *)subdomainName;
 /* not yet implemented:
 addDomainToAccount
 payInvoiceUsingCredits
-removeSubdomain
-removeZoneRecord
+
 */
 @end

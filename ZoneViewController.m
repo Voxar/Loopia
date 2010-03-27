@@ -39,6 +39,7 @@
   [super viewDidLoad];
   self.title = @"Edit record";
   self.navigationItem.rightBarButtonItem = saveButton;
+  self.navigationController.hidesBottomBarWhenPushed = YES;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -174,6 +175,7 @@
       dataCell.textField.text = entry.data;
       dataCell.textLabel.text = @"Data";
       dataCell.textField.delegate = self;
+      [dataCell.textField setAutocorrectionType:UITextAutocorrectionTypeNo];
       cell = dataCell;
       break;
     case ZoneViewTTLCell:
@@ -182,6 +184,7 @@
       timeToLiveCell.textField.text = [entry.ttl stringValue];
       timeToLiveCell.textLabel.text = @"TTL";
       timeToLiveCell.textField.delegate = self;
+      timeToLiveCell.textField.keyboardType = UIKeyboardTypeNumberPad;
       cell = timeToLiveCell;
       break;
     case ZoneViewPriorityCell:
@@ -190,6 +193,7 @@
       priorityCell.textField.text = [entry.priority stringValue];
       priorityCell.textLabel.text = @"Priority";
       priorityCell.textField.delegate = self;
+      timeToLiveCell.textField.keyboardType = UIKeyboardTypeNumberPad;
       cell = priorityCell;
       break;
   }
