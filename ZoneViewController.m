@@ -39,7 +39,6 @@
   [super viewDidLoad];
   self.title = @"Edit record";
   self.navigationItem.rightBarButtonItem = saveButton;
-  self.navigationController.hidesBottomBarWhenPushed = YES;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -47,11 +46,17 @@
   [recordsTableView reloadData];
 //  typePicker.bounds = CGRectOffset(typePicker.bounds, 0, -typePicker.bounds.size.height);
   [recordsTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
+  [self.navigationController setToolbarHidden:YES animated:YES];
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
 
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+  [self.navigationController setToolbarHidden:NO animated:YES];
 }
 
 /*
@@ -193,7 +198,7 @@
       priorityCell.textField.text = [entry.priority stringValue];
       priorityCell.textLabel.text = @"Priority";
       priorityCell.textField.delegate = self;
-      timeToLiveCell.textField.keyboardType = UIKeyboardTypeNumberPad;
+      priorityCell.textField.keyboardType = UIKeyboardTypeNumberPad;
       cell = priorityCell;
       break;
   }

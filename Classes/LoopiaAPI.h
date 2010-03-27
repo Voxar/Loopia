@@ -70,6 +70,5 @@ extern NSString const * LoopiaDomainDomainConfigurationHOSTING_WINDOWS;
 /* not yet implemented:
 addDomainToAccount
 payInvoiceUsingCredits
-
 */
 @end

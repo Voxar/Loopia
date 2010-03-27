@@ -10,6 +10,7 @@
 #import "LoopiaAppDelegate.h"
 #import "DomainViewController.h"
 #import "Loopia.h"
+#import "SearchDomainViewController.h"
 
 @implementation DomainSelectViewController
 
@@ -25,16 +26,27 @@
   return self;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+-(void)addDomain;
+{
+  SearchDomainViewController *addDomainController = [[SearchDomainViewController alloc] initWithNibName:@"AddDomainView" bundle:nil];
+  UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:addDomainController];
+  
+  [self presentModalViewController:nav animated:YES];
+  
+  [addDomainController release];
+  [nav release];
+}
 
-	// Set up the edit and add buttons.
-//    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    
-//    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject)];
-//    self.navigationItem.rightBarButtonItem = addButton;
-//    [addButton release]
+- (void)viewDidLoad {
+  [super viewDidLoad];
+
   self.title = @"Domains";
+  
+  UIBarButtonItem *spaceButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+  UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addDomain)];
+  [self setToolbarItems:[NSArray arrayWithObjects:spaceButton, addButton, nil]];
+  [addButton release];
+  [spaceButton release];
 }
 
 /*

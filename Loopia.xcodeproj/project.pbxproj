@@ -26,6 +26,8 @@
 		2186E373115E15D900FAD4ED /* AddZoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2186E372115E15D900FAD4ED /* AddZoneViewController.m */; };
 		2186E499115E27B400FAD4ED /* AddSubdomain.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2186E498115E27B400FAD4ED /* AddSubdomain.xib */; };
 		2186E49D115E288F00FAD4ED /* AddSubdomainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2186E49C115E288F00FAD4ED /* AddSubdomainController.m */; };
+		2186E90F115E706D00FAD4ED /* SearchDomainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2186E90D115E706D00FAD4ED /* SearchDomainViewController.m */; };
+		2186E910115E706D00FAD4ED /* SearchDomainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2186E90E115E706D00FAD4ED /* SearchDomainView.xib */; };
 		219E1FE0113933EB0053BFE8 /* LoopiaAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 219E1FDF113933EB0053BFE8 /* LoopiaAPI.m */; };
 		219E21141139FDC10053BFE8 /* DomainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 219E21121139FDC10053BFE8 /* DomainViewController.m */; };
 		219E21151139FDC10053BFE8 /* DomainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219E21131139FDC10053BFE8 /* DomainView.xib */; };
@@ -87,6 +89,9 @@
 		2186E498115E27B400FAD4ED /* AddSubdomain.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddSubdomain.xib; sourceTree = "<group>"; };
 		2186E49B115E288F00FAD4ED /* AddSubdomainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSubdomainController.h; sourceTree = "<group>"; };
 		2186E49C115E288F00FAD4ED /* AddSubdomainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSubdomainController.m; sourceTree = "<group>"; };
+		2186E90C115E706D00FAD4ED /* SearchDomainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchDomainViewController.h; path = ../SearchDomainViewController.h; sourceTree = "<group>"; };
+		2186E90D115E706D00FAD4ED /* SearchDomainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchDomainViewController.m; path = ../SearchDomainViewController.m; sourceTree = "<group>"; };
+		2186E90E115E706D00FAD4ED /* SearchDomainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchDomainView.xib; sourceTree = "<group>"; };
 		219E1FDE113933EB0053BFE8 /* LoopiaAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoopiaAPI.h; sourceTree = "<group>"; };
 		219E1FDF113933EB0053BFE8 /* LoopiaAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoopiaAPI.m; sourceTree = "<group>"; };
 		219E21111139FDC10053BFE8 /* DomainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DomainViewController.h; path = ../DomainViewController.h; sourceTree = "<group>"; };
@@ -175,6 +180,8 @@
 				2186E372115E15D900FAD4ED /* AddZoneViewController.m */,
 				2186E49B115E288F00FAD4ED /* AddSubdomainController.h */,
 				2186E49C115E288F00FAD4ED /* AddSubdomainController.m */,
+				2186E90C115E706D00FAD4ED /* SearchDomainViewController.h */,
+				2186E90D115E706D00FAD4ED /* SearchDomainViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -294,6 +301,7 @@
 				8D1107310486CEB800E47090 /* Loopia-Info.plist */,
 				2159CAE611406D7200CDD2AC /* EditableDetailCell.xib */,
 				2186E498115E27B400FAD4ED /* AddSubdomain.xib */,
+				2186E90E115E706D00FAD4ED /* SearchDomainView.xib */,
 			);
 			name = "Resources-iPhone";
 			sourceTree = "<group>";
@@ -368,6 +376,7 @@
 				21132F9E113F2AC5008E9785 /* AccountEditView.xib in Resources */,
 				2159CAE711406D7200CDD2AC /* EditableDetailCell.xib in Resources */,
 				2186E499115E27B400FAD4ED /* AddSubdomain.xib in Resources */,
+				2186E910115E706D00FAD4ED /* SearchDomainView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +418,7 @@
 				21132FA3113F2BFE008E9785 /* EditableDetailCell.m in Sources */,
 				2186E373115E15D900FAD4ED /* AddZoneViewController.m in Sources */,
 				2186E49D115E288F00FAD4ED /* AddSubdomainController.m in Sources */,
+				2186E90F115E706D00FAD4ED /* SearchDomainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
