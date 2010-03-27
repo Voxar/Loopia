@@ -1,0 +1,479 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D3623260D0F684500981E51 /* LoopiaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* LoopiaAppDelegate.m */; };
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		21132D05113EE6EA008E9785 /* AccountSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21132D03113EE6EA008E9785 /* AccountSelectViewController.m */; };
+		21132D06113EE6EA008E9785 /* AccountSelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21132D04113EE6EA008E9785 /* AccountSelectView.xib */; };
+		21132DA4113F0FDB008E9785 /* LPAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 21132DA3113F0FDB008E9785 /* LPAccount.m */; };
+		21132DA7113F0FE2008E9785 /* LPDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 21132DA6113F0FE2008E9785 /* LPDomain.m */; };
+		21132DAA113F0FEF008E9785 /* LPSubdomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 21132DA9113F0FEF008E9785 /* LPSubdomain.m */; };
+		21132DAD113F0FFC008E9785 /* LPDNSEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 21132DAC113F0FFC008E9785 /* LPDNSEntry.m */; };
+		21132DB0113F1015008E9785 /* LPContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 21132DAF113F1015008E9785 /* LPContact.m */; };
+		21132DB3113F101C008E9785 /* LPObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 21132DB2113F101C008E9785 /* LPObject.m */; };
+		21132F9D113F2AC5008E9785 /* AccountEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21132F9B113F2AC5008E9785 /* AccountEditViewController.m */; };
+		21132F9E113F2AC5008E9785 /* AccountEditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21132F9C113F2AC5008E9785 /* AccountEditView.xib */; };
+		21132FA3113F2BFE008E9785 /* EditableDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21132FA2113F2BFE008E9785 /* EditableDetailCell.m */; };
+		2159CAE711406D7200CDD2AC /* EditableDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2159CAE611406D7200CDD2AC /* EditableDetailCell.xib */; };
+		219E1FE0113933EB0053BFE8 /* LoopiaAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 219E1FDF113933EB0053BFE8 /* LoopiaAPI.m */; };
+		219E21141139FDC10053BFE8 /* DomainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 219E21121139FDC10053BFE8 /* DomainViewController.m */; };
+		219E21151139FDC10053BFE8 /* DomainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219E21131139FDC10053BFE8 /* DomainView.xib */; };
+		219E21A3113A05CB0053BFE8 /* SubDomainDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 219E21A1113A05CB0053BFE8 /* SubDomainDetailViewController.m */; };
+		219E21A4113A05CB0053BFE8 /* SubDomainDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219E21A2113A05CB0053BFE8 /* SubDomainDetailView.xib */; };
+		219E21DD113A7CFC0053BFE8 /* ZoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 219E21DB113A7CFC0053BFE8 /* ZoneViewController.m */; };
+		219E21DE113A7CFC0053BFE8 /* ZoneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219E21DC113A7CFC0053BFE8 /* ZoneView.xib */; };
+		219E2298113A8BB80053BFE8 /* TabeViewControllerWithBackgroundLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 219E2297113A8BB80053BFE8 /* TabeViewControllerWithBackgroundLoading.m */; };
+		219E23A6113AA0E40053BFE8 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 219E23A5113AA0E40053BFE8 /* Default.png */; };
+		21F9FA9C113737BD00866299 /* XMLValueDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F9FA8F113737BD00866299 /* XMLValueDecoder.m */; };
+		21F9FA9D113737BD00866299 /* XMLRPCConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F9FA91113737BD00866299 /* XMLRPCConnection.m */; };
+		21F9FA9E113737BD00866299 /* XMLRPCDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F9FA93113737BD00866299 /* XMLRPCDecoder.m */; };
+		21F9FA9F113737BD00866299 /* XMLRPCEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F9FA95113737BD00866299 /* XMLRPCEncoder.m */; };
+		21F9FAA0113737BD00866299 /* XMLRPCExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F9FA97113737BD00866299 /* XMLRPCExtensions.m */; };
+		21F9FAA1113737BD00866299 /* XMLRPCRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F9FA99113737BD00866299 /* XMLRPCRequest.m */; };
+		21F9FAA2113737BD00866299 /* XMLRPCResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F9FA9B113737BD00866299 /* XMLRPCResponse.m */; };
+		21F9FAA5113737C700866299 /* NSString+XMLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F9FAA4113737C700866299 /* NSString+XMLExtensions.m */; };
+		21F9FAA8113737CF00866299 /* XMLRPCConnection+Authentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F9FAA7113737CF00866299 /* XMLRPCConnection+Authentication.m */; };
+		21F9FAB1113737E200866299 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F9FAAC113737E200866299 /* NSData+Base64.m */; };
+		21F9FAB2113737E200866299 /* NSString+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F9FAAE113737E200866299 /* NSString+Helpers.m */; };
+		21F9FAB3113737E200866299 /* NSString+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F9FAB0113737E200866299 /* NSString+Util.m */; };
+		28860BE50F44EE6400985440 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28860BE40F44EE6400985440 /* CoreData.framework */; };
+		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
+		2899E5600DE3E45000AC0155 /* DomainSelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E55F0DE3E45000AC0155 /* DomainSelectView.xib */; };
+		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
+		28C286E10D94DF7D0034E888 /* DomainSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* DomainSelectViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D3623240D0F684500981E51 /* LoopiaAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoopiaAppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* LoopiaAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoopiaAppDelegate.m; sourceTree = "<group>"; };
+		1D6058910D05DD3D006BFB54 /* Loopia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loopia.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		21132D02113EE6EA008E9785 /* AccountSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountSelectViewController.h; sourceTree = "<group>"; };
+		21132D03113EE6EA008E9785 /* AccountSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountSelectViewController.m; sourceTree = "<group>"; };
+		21132D04113EE6EA008E9785 /* AccountSelectView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AccountSelectView.xib; path = Classes/AccountSelectView.xib; sourceTree = "<group>"; };
+		21132DA2113F0FDB008E9785 /* LPAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPAccount.h; sourceTree = "<group>"; };
+		21132DA3113F0FDB008E9785 /* LPAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPAccount.m; sourceTree = "<group>"; };
+		21132DA5113F0FE2008E9785 /* LPDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPDomain.h; sourceTree = "<group>"; };
+		21132DA6113F0FE2008E9785 /* LPDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPDomain.m; sourceTree = "<group>"; };
+		21132DA8113F0FEF008E9785 /* LPSubdomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPSubdomain.h; sourceTree = "<group>"; };
+		21132DA9113F0FEF008E9785 /* LPSubdomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPSubdomain.m; sourceTree = "<group>"; };
+		21132DAB113F0FFC008E9785 /* LPDNSEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPDNSEntry.h; sourceTree = "<group>"; };
+		21132DAC113F0FFC008E9785 /* LPDNSEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPDNSEntry.m; sourceTree = "<group>"; };
+		21132DAE113F1015008E9785 /* LPContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPContact.h; sourceTree = "<group>"; };
+		21132DAF113F1015008E9785 /* LPContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPContact.m; sourceTree = "<group>"; };
+		21132DB1113F101C008E9785 /* LPObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPObject.h; sourceTree = "<group>"; };
+		21132DB2113F101C008E9785 /* LPObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPObject.m; sourceTree = "<group>"; };
+		21132DCA113F13A4008E9785 /* Loopia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Loopia.h; sourceTree = "<group>"; };
+		21132F9A113F2AC5008E9785 /* AccountEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountEditViewController.h; sourceTree = "<group>"; };
+		21132F9B113F2AC5008E9785 /* AccountEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountEditViewController.m; sourceTree = "<group>"; };
+		21132F9C113F2AC5008E9785 /* AccountEditView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AccountEditView.xib; path = Classes/AccountEditView.xib; sourceTree = "<group>"; };
+		21132FA1113F2BFE008E9785 /* EditableDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditableDetailCell.h; sourceTree = "<group>"; };
+		21132FA2113F2BFE008E9785 /* EditableDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditableDetailCell.m; sourceTree = "<group>"; };
+		2159CAE611406D7200CDD2AC /* EditableDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditableDetailCell.xib; sourceTree = "<group>"; };
+		219E1FDE113933EB0053BFE8 /* LoopiaAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoopiaAPI.h; sourceTree = "<group>"; };
+		219E1FDF113933EB0053BFE8 /* LoopiaAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoopiaAPI.m; sourceTree = "<group>"; };
+		219E21111139FDC10053BFE8 /* DomainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DomainViewController.h; path = ../DomainViewController.h; sourceTree = "<group>"; };
+		219E21121139FDC10053BFE8 /* DomainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DomainViewController.m; path = ../DomainViewController.m; sourceTree = "<group>"; };
+		219E21131139FDC10053BFE8 /* DomainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DomainView.xib; sourceTree = "<group>"; };
+		219E21A0113A05CB0053BFE8 /* SubDomainDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubDomainDetailViewController.h; path = ../SubDomainDetailViewController.h; sourceTree = "<group>"; };
+		219E21A1113A05CB0053BFE8 /* SubDomainDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubDomainDetailViewController.m; path = ../SubDomainDetailViewController.m; sourceTree = "<group>"; };
+		219E21A2113A05CB0053BFE8 /* SubDomainDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubDomainDetailView.xib; sourceTree = "<group>"; };
+		219E21DA113A7CFC0053BFE8 /* ZoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZoneViewController.h; path = ../ZoneViewController.h; sourceTree = "<group>"; };
+		219E21DB113A7CFC0053BFE8 /* ZoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZoneViewController.m; path = ../ZoneViewController.m; sourceTree = "<group>"; };
+		219E21DC113A7CFC0053BFE8 /* ZoneView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZoneView.xib; sourceTree = "<group>"; };
+		219E2296113A8BB80053BFE8 /* TabeViewControllerWithBackgroundLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabeViewControllerWithBackgroundLoading.h; sourceTree = "<group>"; };
+		219E2297113A8BB80053BFE8 /* TabeViewControllerWithBackgroundLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabeViewControllerWithBackgroundLoading.m; sourceTree = "<group>"; };
+		219E23A5113AA0E40053BFE8 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		21F9FA8E113737BD00866299 /* XMLValueDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLValueDecoder.h; sourceTree = "<group>"; };
+		21F9FA8F113737BD00866299 /* XMLValueDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLValueDecoder.m; sourceTree = "<group>"; };
+		21F9FA90113737BD00866299 /* XMLRPCConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLRPCConnection.h; sourceTree = "<group>"; };
+		21F9FA91113737BD00866299 /* XMLRPCConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLRPCConnection.m; sourceTree = "<group>"; };
+		21F9FA92113737BD00866299 /* XMLRPCDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLRPCDecoder.h; sourceTree = "<group>"; };
+		21F9FA93113737BD00866299 /* XMLRPCDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLRPCDecoder.m; sourceTree = "<group>"; };
+		21F9FA94113737BD00866299 /* XMLRPCEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLRPCEncoder.h; sourceTree = "<group>"; };
+		21F9FA95113737BD00866299 /* XMLRPCEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLRPCEncoder.m; sourceTree = "<group>"; };
+		21F9FA96113737BD00866299 /* XMLRPCExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLRPCExtensions.h; sourceTree = "<group>"; };
+		21F9FA97113737BD00866299 /* XMLRPCExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLRPCExtensions.m; sourceTree = "<group>"; };
+		21F9FA98113737BD00866299 /* XMLRPCRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLRPCRequest.h; sourceTree = "<group>"; };
+		21F9FA99113737BD00866299 /* XMLRPCRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLRPCRequest.m; sourceTree = "<group>"; };
+		21F9FA9A113737BD00866299 /* XMLRPCResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLRPCResponse.h; sourceTree = "<group>"; };
+		21F9FA9B113737BD00866299 /* XMLRPCResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLRPCResponse.m; sourceTree = "<group>"; };
+		21F9FAA3113737C700866299 /* NSString+XMLExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XMLExtensions.h"; sourceTree = "<group>"; };
+		21F9FAA4113737C700866299 /* NSString+XMLExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XMLExtensions.m"; sourceTree = "<group>"; };
+		21F9FAA6113737CF00866299 /* XMLRPCConnection+Authentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XMLRPCConnection+Authentication.h"; sourceTree = "<group>"; };
+		21F9FAA7113737CF00866299 /* XMLRPCConnection+Authentication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XMLRPCConnection+Authentication.m"; sourceTree = "<group>"; };
+		21F9FAAB113737E200866299 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		21F9FAAC113737E200866299 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		21F9FAAD113737E200866299 /* NSString+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Helpers.h"; sourceTree = "<group>"; };
+		21F9FAAE113737E200866299 /* NSString+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Helpers.m"; sourceTree = "<group>"; };
+		21F9FAAF113737E200866299 /* NSString+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Util.h"; sourceTree = "<group>"; };
+		21F9FAB0113737E200866299 /* NSString+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Util.m"; sourceTree = "<group>"; };
+		28860BE40F44EE6400985440 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2899E55F0DE3E45000AC0155 /* DomainSelectView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DomainSelectView.xib; sourceTree = "<group>"; };
+		28A0AAE50D9B0CCF005BE974 /* Loopia_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Loopia_Prefix.pch; sourceTree = "<group>"; };
+		28AD735F0D9D9599002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		28C286DF0D94DF7D0034E888 /* DomainSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DomainSelectViewController.h; sourceTree = "<group>"; };
+		28C286E00D94DF7D0034E888 /* DomainSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DomainSelectViewController.m; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* Loopia-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Loopia-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
+				28860BE50F44EE6400985440 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				21132F9F113F2BCA008E9785 /* Controls */,
+				21132DA1113F0FC5008E9785 /* Models */,
+				219E20B31139F5160053BFE8 /* LoopiaAPI */,
+				1D3623240D0F684500981E51 /* LoopiaAppDelegate.h */,
+				1D3623250D0F684500981E51 /* LoopiaAppDelegate.m */,
+				21132D02113EE6EA008E9785 /* AccountSelectViewController.h */,
+				21132D03113EE6EA008E9785 /* AccountSelectViewController.m */,
+				21132F9A113F2AC5008E9785 /* AccountEditViewController.h */,
+				21132F9B113F2AC5008E9785 /* AccountEditViewController.m */,
+				28C286DF0D94DF7D0034E888 /* DomainSelectViewController.h */,
+				28C286E00D94DF7D0034E888 /* DomainSelectViewController.m */,
+				219E21111139FDC10053BFE8 /* DomainViewController.h */,
+				219E21121139FDC10053BFE8 /* DomainViewController.m */,
+				219E21A0113A05CB0053BFE8 /* SubDomainDetailViewController.h */,
+				219E21A1113A05CB0053BFE8 /* SubDomainDetailViewController.m */,
+				219E21DA113A7CFC0053BFE8 /* ZoneViewController.h */,
+				219E21DB113A7CFC0053BFE8 /* ZoneViewController.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* Loopia.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		21132DA1113F0FC5008E9785 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				21132DCA113F13A4008E9785 /* Loopia.h */,
+				21132DB1113F101C008E9785 /* LPObject.h */,
+				21132DB2113F101C008E9785 /* LPObject.m */,
+				21132DA2113F0FDB008E9785 /* LPAccount.h */,
+				21132DA3113F0FDB008E9785 /* LPAccount.m */,
+				21132DA5113F0FE2008E9785 /* LPDomain.h */,
+				21132DA6113F0FE2008E9785 /* LPDomain.m */,
+				21132DA8113F0FEF008E9785 /* LPSubdomain.h */,
+				21132DA9113F0FEF008E9785 /* LPSubdomain.m */,
+				21132DAB113F0FFC008E9785 /* LPDNSEntry.h */,
+				21132DAC113F0FFC008E9785 /* LPDNSEntry.m */,
+				21132DAE113F1015008E9785 /* LPContact.h */,
+				21132DAF113F1015008E9785 /* LPContact.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		21132F9F113F2BCA008E9785 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				219E2296113A8BB80053BFE8 /* TabeViewControllerWithBackgroundLoading.h */,
+				219E2297113A8BB80053BFE8 /* TabeViewControllerWithBackgroundLoading.m */,
+				21132FA1113F2BFE008E9785 /* EditableDetailCell.h */,
+				21132FA2113F2BFE008E9785 /* EditableDetailCell.m */,
+			);
+			name = Controls;
+			sourceTree = "<group>";
+		};
+		219E20B31139F5160053BFE8 /* LoopiaAPI */ = {
+			isa = PBXGroup;
+			children = (
+				21F9FA8D113737BD00866299 /* XMLRPC */,
+				219E1FDE113933EB0053BFE8 /* LoopiaAPI.h */,
+				219E1FDF113933EB0053BFE8 /* LoopiaAPI.m */,
+			);
+			name = LoopiaAPI;
+			sourceTree = "<group>";
+		};
+		21F9FA8D113737BD00866299 /* XMLRPC */ = {
+			isa = PBXGroup;
+			children = (
+				21F9FAAB113737E200866299 /* NSData+Base64.h */,
+				21F9FAAC113737E200866299 /* NSData+Base64.m */,
+				21F9FAAD113737E200866299 /* NSString+Helpers.h */,
+				21F9FAAE113737E200866299 /* NSString+Helpers.m */,
+				21F9FAAF113737E200866299 /* NSString+Util.h */,
+				21F9FAB0113737E200866299 /* NSString+Util.m */,
+				21F9FAA6113737CF00866299 /* XMLRPCConnection+Authentication.h */,
+				21F9FAA7113737CF00866299 /* XMLRPCConnection+Authentication.m */,
+				21F9FAA3113737C700866299 /* NSString+XMLExtensions.h */,
+				21F9FAA4113737C700866299 /* NSString+XMLExtensions.m */,
+				21F9FA8E113737BD00866299 /* XMLValueDecoder.h */,
+				21F9FA8F113737BD00866299 /* XMLValueDecoder.m */,
+				21F9FA90113737BD00866299 /* XMLRPCConnection.h */,
+				21F9FA91113737BD00866299 /* XMLRPCConnection.m */,
+				21F9FA92113737BD00866299 /* XMLRPCDecoder.h */,
+				21F9FA93113737BD00866299 /* XMLRPCDecoder.m */,
+				21F9FA94113737BD00866299 /* XMLRPCEncoder.h */,
+				21F9FA95113737BD00866299 /* XMLRPCEncoder.m */,
+				21F9FA96113737BD00866299 /* XMLRPCExtensions.h */,
+				21F9FA97113737BD00866299 /* XMLRPCExtensions.m */,
+				21F9FA98113737BD00866299 /* XMLRPCRequest.h */,
+				21F9FA99113737BD00866299 /* XMLRPCRequest.m */,
+				21F9FA9A113737BD00866299 /* XMLRPCResponse.h */,
+				21F9FA9B113737BD00866299 /* XMLRPCResponse.m */,
+			);
+			path = XMLRPC;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources-iPhone */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				28A0AAE50D9B0CCF005BE974 /* Loopia_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources-iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
+				21132D04113EE6EA008E9785 /* AccountSelectView.xib */,
+				21132F9C113F2AC5008E9785 /* AccountEditView.xib */,
+				2899E55F0DE3E45000AC0155 /* DomainSelectView.xib */,
+				219E21131139FDC10053BFE8 /* DomainView.xib */,
+				219E21A2113A05CB0053BFE8 /* SubDomainDetailView.xib */,
+				219E21DC113A7CFC0053BFE8 /* ZoneView.xib */,
+				219E23A5113AA0E40053BFE8 /* Default.png */,
+				8D1107310486CEB800E47090 /* Loopia-Info.plist */,
+				2159CAE611406D7200CDD2AC /* EditableDetailCell.xib */,
+			);
+			name = "Resources-iPhone";
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
+				28860BE40F44EE6400985440 /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* Loopia */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Loopia" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Loopia;
+			productName = Loopia;
+			productReference = 1D6058910D05DD3D006BFB54 /* Loopia.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Loopia" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				en,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* Loopia */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
+				2899E5600DE3E45000AC0155 /* DomainSelectView.xib in Resources */,
+				219E21151139FDC10053BFE8 /* DomainView.xib in Resources */,
+				219E21A4113A05CB0053BFE8 /* SubDomainDetailView.xib in Resources */,
+				219E21DE113A7CFC0053BFE8 /* ZoneView.xib in Resources */,
+				219E23A6113AA0E40053BFE8 /* Default.png in Resources */,
+				21132D06113EE6EA008E9785 /* AccountSelectView.xib in Resources */,
+				21132F9E113F2AC5008E9785 /* AccountEditView.xib in Resources */,
+				2159CAE711406D7200CDD2AC /* EditableDetailCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				1D3623260D0F684500981E51 /* LoopiaAppDelegate.m in Sources */,
+				28C286E10D94DF7D0034E888 /* DomainSelectViewController.m in Sources */,
+				21F9FA9C113737BD00866299 /* XMLValueDecoder.m in Sources */,
+				21F9FA9D113737BD00866299 /* XMLRPCConnection.m in Sources */,
+				21F9FA9E113737BD00866299 /* XMLRPCDecoder.m in Sources */,
+				21F9FA9F113737BD00866299 /* XMLRPCEncoder.m in Sources */,
+				21F9FAA0113737BD00866299 /* XMLRPCExtensions.m in Sources */,
+				21F9FAA1113737BD00866299 /* XMLRPCRequest.m in Sources */,
+				21F9FAA2113737BD00866299 /* XMLRPCResponse.m in Sources */,
+				21F9FAA5113737C700866299 /* NSString+XMLExtensions.m in Sources */,
+				21F9FAA8113737CF00866299 /* XMLRPCConnection+Authentication.m in Sources */,
+				21F9FAB1113737E200866299 /* NSData+Base64.m in Sources */,
+				21F9FAB2113737E200866299 /* NSString+Helpers.m in Sources */,
+				21F9FAB3113737E200866299 /* NSString+Util.m in Sources */,
+				219E1FE0113933EB0053BFE8 /* LoopiaAPI.m in Sources */,
+				219E21141139FDC10053BFE8 /* DomainViewController.m in Sources */,
+				219E21A3113A05CB0053BFE8 /* SubDomainDetailViewController.m in Sources */,
+				219E21DD113A7CFC0053BFE8 /* ZoneViewController.m in Sources */,
+				219E2298113A8BB80053BFE8 /* TabeViewControllerWithBackgroundLoading.m in Sources */,
+				21132D05113EE6EA008E9785 /* AccountSelectViewController.m in Sources */,
+				21132DA4113F0FDB008E9785 /* LPAccount.m in Sources */,
+				21132DA7113F0FE2008E9785 /* LPDomain.m in Sources */,
+				21132DAA113F0FEF008E9785 /* LPSubdomain.m in Sources */,
+				21132DAD113F0FFC008E9785 /* LPDNSEntry.m in Sources */,
+				21132DB0113F1015008E9785 /* LPContact.m in Sources */,
+				21132DB3113F101C008E9785 /* LPObject.m in Sources */,
+				21132F9D113F2AC5008E9785 /* AccountEditViewController.m in Sources */,
+				21132FA3113F2BFE008E9785 /* EditableDetailCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Loopia_Prefix.pch;
+				INFOPLIST_FILE = "Loopia-Info.plist";
+				PRODUCT_NAME = Loopia;
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Loopia_Prefix.pch;
+				INFOPLIST_FILE = "Loopia-Info.plist";
+				PRODUCT_NAME = Loopia;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos3.1.2;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos3.1.2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Loopia" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Loopia" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
