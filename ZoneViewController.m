@@ -10,11 +10,13 @@
 #import "LPDNSEntry.h"
 #import "LoopiaAppDelegate.h"
 
+
+
 @implementation ZoneViewController
 
-@synthesize entry, domain, subdomain;
+@synthesize delegate, entry, domain, subdomain;
 
--(id)initWithDNSEntry:(LPDNSEntry*)entry_ forDomain:(NSString *)domain_ subdomain:(NSString *)subdomain_;
+-(id)initWithDNSEntry:(LPDNSEntry*)entry_ forDomain:(LPDomain *)domain_ subdomain:(LPSubdomain *)subdomain_;
 {
   if(![self initWithNibName:@"ZoneView" bundle:nil]) return nil;
   self.entry = entry_;
@@ -24,10 +26,18 @@
 }
 
 
+-(NSArray *)dnsRecordTypes;
+{
+  static NSArray *recordTypes = nil;
+  if(!recordTypes) 
+    recordTypes = [[NSArray alloc] initWithObjects:@"A", @"AAAA", @"CNAME", @"HINFO", @"MX", @"SRV", @"TXT", nil];
+  return recordTypes;
+}
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-  
   [super viewDidLoad];
+  self.title = @"Edit record";
   self.navigationItem.rightBarButtonItem = saveButton;
 }
 
@@ -107,6 +117,22 @@
 
 #pragma mark Actions
 
+-(void)doneSaveing:(LPDNSEntry *)savedEntry;
+{
+  [delegate saveZoneComplete:savedEntry];
+}
+
+-(void)backgroundSave;
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+  BOOL success = [[LoopiaAppDelegate sharedAPI] updateZoneRecord:entry forDomainName:domain.name subdomainName:subdomain.name];
+  if(success)
+    [self performSelectorOnMainThread:@selector(doneSaveing:) withObject:entry waitUntilDone:NO];
+  else
+    [self performSelectorOnMainThread:@selector(doneSaveing:) withObject:nil waitUntilDone:NO];
+  [pool release];
+}
+
 -(IBAction)saveAction:(id)sender;
 {
   NSNumberFormatter *nf = [[[NSNumberFormatter alloc] init] autorelease];
@@ -115,7 +141,7 @@
   entry.priority = [nf numberFromString:priorityCell.textField.text];
   entry.data = dataCell.textField.text;
   
-  [[LoopiaAppDelegate sharedAPI] updateZoneRecord:entry forDomain:domain subdomain:subdomain];
+  [self performSelectorInBackground:@selector(backgroundSave) withObject:nil];
 }
 
 #pragma mark TableView
@@ -197,19 +223,17 @@
 
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-  return 2;
+  return [[self dnsRecordTypes] count];
 }
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-  NSArray *DNSRecordTypes = [NSArray arrayWithObjects:@"A", @"CNAME", nil];
-  return [DNSRecordTypes objectAtIndex:row];
+  return [[self dnsRecordTypes] objectAtIndex:row];
 }
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-  NSArray *DNSRecordTypes = [NSArray arrayWithObjects:@"A", @"CNAME", nil];
-  typeCell.detailTextLabel.text = [DNSRecordTypes objectAtIndex:row];
+  typeCell.detailTextLabel.text = [[self dnsRecordTypes] objectAtIndex:row];
   [typeCell setNeedsLayout];
 }
 

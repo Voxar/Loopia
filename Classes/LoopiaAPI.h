@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class LPDNSEntry;
+@class LPDomain;
 
 extern NSString const * LoopiaDomainStatusOK;
 extern NSString const * LoopiaDomainStatusOCCUPIED;
@@ -56,19 +57,18 @@ extern NSString const * LoopiaDomainDomainConfigurationHOSTING_WINDOWS;
 
 -(void)setUsername:(NSString *)username_ password:(NSString *)password_;
 
--(NSDictionary*) domain:(NSString *)domainName;
+-(NSDictionary*) domainForDomainName:(NSString *)domainName;
 -(NSArray *)domains;
--(NSString *)statusForDomain:(NSString *)domainName;
--(NSArray *)subdomainsForDomain:(NSString *)domain;
--(NSArray *)zoneRecordsForDomain:(NSString*)domain subdomain:(NSString *)subdomain; 
--(BOOL)updateZoneRecord:(LPDNSEntry *)record forDomain:(NSString *)domain subdomain:(NSString*)subdomain;
+-(NSString *)statusForDomainName:(NSString *)domainName;
+-(NSArray *)subdomainsForDomainName:(NSString *)domainName;
+-(NSArray *)zoneRecordsForDomainName:(NSString*)domainName subdomainName:(NSString *)subdomain; 
+-(BOOL)updateZoneRecord:(LPDNSEntry *)record forDomainName:(NSString *)domainName subdomainName:(NSString*)subdomain;
+-(BOOL)addZoneRecord:(LPDNSEntry *)record forDomainName:(NSString *)domain subdomainName:(NSString*)subdomain;
+-(BOOL)addSubdomainName:(NSString *)subdomain forDomainName:(NSString *)domain;
 /* not yet implemented:
 addDomainToAccount
-addSubdomain
-addZoneRecord
 payInvoiceUsingCredits
 removeSubdomain
 removeZoneRecord
-
 */
 @end

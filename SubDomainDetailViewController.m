@@ -8,21 +8,23 @@
 
 #import "SubDomainDetailViewController.h"
 #import "ZoneViewController.h"
+#import "AddZoneViewController.h"
 #import "LPDNSEntry.h"
+#import "AddSubdomainController.h"
 
 @implementation SubDomainDetailViewController
 
-@synthesize domainName, subdomain, zoneInfoArray;
+@synthesize domain, subdomain, zoneInfoArray;
 
--(id)initWithDomainName:(NSString *)domain_ subdomain:(NSString *)subdomain_ zoneInfo:(NSArray *)zoneInfoArray_;
+-(id)initWithDomain:(LPDomain *)domain_ subdomain:(LPSubdomain *)subdomain_ zones:(NSArray *)zones_;
 {
   if(![self initWithNibName:@"SubDomainDetailView" bundle:nil]) return nil;
   
-  self.domainName = domain_;
+  self.domain = domain_;
   self.subdomain = subdomain_;
-  self.zoneInfoArray = zoneInfoArray_;
+  self.zoneInfoArray = zones_;
   
-  self.title = [NSString stringWithFormat:@"%@.%@", subdomain_, domain_];
+  self.title = subdomain.name;
   
   return self;
 }
@@ -37,12 +39,37 @@
 */
 
 
-//- (void)viewDidLoad {
-//  [super viewDidLoad];
-//
-//  // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-//  // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-//}
+- (void)viewDidLoad {
+  [super viewDidLoad];
+
+  // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+  self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
+                                                                                         target:self 
+                                                                                         action:@selector(addItem:)] autorelease];
+}
+
+-(void)addItem:(id)sender;
+{
+  LPDNSEntry *newEntry = [[LPDNSEntry alloc] init];
+  AddZoneViewController *zoneView = [[AddZoneViewController alloc] initWithDNSEntry:newEntry forDomain:domain subdomain:subdomain];
+  zoneView.delegate = self;
+  UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:zoneView];
+  [self.navigationController presentModalViewController:navController animated:YES];
+  [zoneView release];
+  [newEntry release];
+}
+
+-(void)saveZoneComplete:(LPDNSEntry *)newEntry;
+{
+  if(newEntry){
+    if(![zoneInfoArray containsObject:newEntry]){
+      NSMutableArray *mutableZones = [zoneInfoArray mutableCopyWithZone:nil];
+      [mutableZones addObject:newEntry];
+      self.zoneInfoArray = mutableZones;
+    }
+    [(UITableView*)self.view reloadData];
+  }
+}
 
 
 /*
@@ -112,25 +139,20 @@
   }
   
   // Set up the cell...
-  NSDictionary *zone = [zoneInfoArray objectAtIndex:[indexPath section]];
-  cell.textLabel.text = [zone objectForKey:@"type"];
-  cell.detailTextLabel.text = [zone objectForKey:@"rdata"];
+  LPDNSEntry *zone = [zoneInfoArray objectAtIndex:[indexPath row]];
+  cell.textLabel.text = zone.type;
+  cell.detailTextLabel.text = zone.data;
   [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
   return cell;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//  NSDictionary *zone = [zoneInfoArray objectAtIndex:[indexPath row]];
-//  ZoneViewController *zoneController = [[[ZoneViewController alloc] initWithDomainName:domainName subdomain:subdomain zone:zone] autorelease];
-//  [self.navigationController pushViewController:zoneController animated:YES];
-  id zone = [zoneInfoArray objectAtIndex:[indexPath row]];
-  LPDNSEntry *entry = [[LPDNSEntry alloc] initWithRemoteObject:zone];
-  ZoneViewController *zoneView = [[ZoneViewController alloc] initWithDNSEntry:entry forDomain:domainName subdomain:subdomain];
+  id entry = [zoneInfoArray objectAtIndex:[indexPath row]];
+  ZoneViewController *zoneView = [[ZoneViewController alloc] initWithDNSEntry:entry forDomain:domain subdomain:subdomain];
+  zoneView.delegate = self;
   [self.navigationController pushViewController:zoneView animated:YES];
-//  [self presentModalViewController:zoneView animated:YES];
   [zoneView release];
-  [entry release];
 }
 
 
@@ -175,7 +197,7 @@
 
 
 - (void)dealloc {
-  self.domainName = nil;
+  self.domain = nil;
   self.subdomain = nil;
   self.zoneInfoArray = nil;
   

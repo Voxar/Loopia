@@ -17,10 +17,10 @@
 {
   if(![super init]) return nil;
   
-  self.type = @"";
-  self.ttl = [NSNumber numberWithInt:0];
-  self.priority = [NSNumber numberWithInt:3600];
-  self.data = @"";
+  self.type = @"A";
+  self.ttl = [NSNumber numberWithInt:3600];
+  self.priority = [NSNumber numberWithInt:0];
+  self.data = @"127.0.0.1";
   self.record_id = [NSNumber numberWithInt:0];
   
   return self;

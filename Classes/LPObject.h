@@ -16,10 +16,10 @@
 - (void)encodeWithCoder:(NSCoder *)aCoder;
 - (id)initWithCoder:(NSCoder *)aDecoder;
 
--(id)initWithRemoteObject:(NSDictionary *)object;
+-(id)initWithRemoteObject:(id)object;
 
--(BOOL)loadFromRemoteObject:(NSDictionary *)object;
--(NSDictionary*)asRemoteObject;
+-(BOOL)loadFromRemoteObject:(id)object; //object will be NSDictionary in most cases
+-(id)asRemoteObject;
 
 
 

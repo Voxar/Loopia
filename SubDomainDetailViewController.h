@@ -7,18 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Loopia.h"
 
-
+@class LPDNSEntry;
 @interface SubDomainDetailViewController : UITableViewController {
-  NSString *domainName;
-  NSString *subdomain;
+  LPDomain *domain;
+  LPSubdomain *subdomain;
   NSArray *zoneInfoArray;
 }
 
-@property (nonatomic, retain) NSString *domainName;
-@property (nonatomic, retain) NSString *subdomain;
+@property (nonatomic, retain) LPDomain *domain;
+@property (nonatomic, retain) LPSubdomain *subdomain;
 @property (nonatomic, retain) NSArray *zoneInfoArray;
 
--(id)initWithDomainName:(NSString *)domain_ subdomain:(NSString *)subdomain_ zoneInfo:(NSArray *)zoneInfoArray_;
+-(id)initWithDomain:(LPDomain *)domain_ subdomain:(LPSubdomain *)subdomain_ zones:(NSArray *)zoneInfoArray_;
+
 
 @end

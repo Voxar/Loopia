@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "EditableDetailCell.h"
+#import "Loopia.h"
 
 @class LPDNSEntry;
 
@@ -18,10 +19,17 @@ enum  {
   ZoneViewPriorityCell
 };
 
+@protocol ZoneViewDelegate
+
+-(void)saveZoneComplete:(LPDNSEntry *)newEntry;
+
+@end
+
+
 @interface ZoneViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate> {
   LPDNSEntry *entry;
-  NSString *domain;
-  NSString *subdomain;
+  LPDomain *domain;
+  LPSubdomain *subdomain;
   
   IBOutlet UITableView *recordsTableView;
   
@@ -32,14 +40,22 @@ enum  {
   
   IBOutlet UIBarButtonItem *saveButton;
   IBOutlet UIPickerView *typePicker;
+  id<ZoneViewDelegate> delegate;
 }
 
-@property (nonatomic, retain) LPDNSEntry *entry;
-@property (nonatomic, retain) NSString *domain;
-@property (nonatomic, retain) NSString *subdomain;
+@property (nonatomic, assign) id delegate;
 
--(id)initWithDNSEntry:(LPDNSEntry*)entry_ forDomain:(NSString *)domain_ subdomain:(NSString *)subdomain_;
+@property (nonatomic, retain) LPDNSEntry *entry;
+@property (nonatomic, retain) LPDomain *domain;
+@property (nonatomic, retain) LPSubdomain *subdomain;
+
+-(id)initWithDNSEntry:(LPDNSEntry*)entry_ forDomain:(LPDomain *)domain_ subdomain:(LPSubdomain *)subdomain_;
 
 -(IBAction)saveAction:(id)sender;
+
+
+
+-(void)backgroundSave;
+-(void)doneSaveing:(LPDNSEntry *)savedEntry;
 
 @end

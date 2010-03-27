@@ -7,23 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LoopiaAPI.h"
+#import "Loopia.h"
 
 #import "TabeViewControllerWithBackgroundLoading.h"
 
 @interface DomainViewController : TabeViewControllerWithBackgroundLoading {
-  NSDictionary *domain;
+  LPDomain *domain;
   NSArray *subdomains;
   
   IBOutlet UILabel *statusLabel;
   IBOutlet UIButton *payButton;
 }
 
-@property (nonatomic, retain) NSDictionary *domain;
+@property (nonatomic, retain) LPDomain *domain;
 @property (nonatomic, retain) NSArray *subdomains;
 
--(id)initWithDomain:(NSDictionary *)domain_ subdomains:(NSArray *)subdomains_;
+-(id)initWithDomain:(LPDomain *)domain_ subdomains:(NSArray *)subdomains_;
 
 -(IBAction)payButtonAction:(id)sender;
 
+-(void)addSubdomain;
 @end

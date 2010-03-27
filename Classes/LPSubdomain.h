@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LPObject.h"
 
-
-@interface LPSubdomain : NSObject {
-
+@interface LPSubdomain : LPObject {
+  NSString *name;
 }
+
+@property (nonatomic, retain) NSString *name;
 
 @end

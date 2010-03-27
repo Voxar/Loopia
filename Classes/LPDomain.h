@@ -7,10 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LPObject.h"
 
-
-@interface LPDomain : NSObject {
-
+@interface LPDomain : LPObject {
+  NSString *name;
+  BOOL paid;
+  BOOL registered;
+  NSInteger referenceNr;
+  double unpaidAmount;
 }
+
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic, assign) BOOL paid;
+@property (nonatomic, assign) BOOL registered;
+@property (nonatomic, assign) NSInteger referenceNr;
+@property (nonatomic, assign) double unpaidAmount;
 
 @end

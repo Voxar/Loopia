@@ -22,7 +22,7 @@
   return [self initWithRemoteObject:[aDecoder decodeObjectForKey:@"remoteObject"]];
 }
 
--(id)initWithRemoteObject:(NSDictionary *)object;
+-(id)initWithRemoteObject:(id)object;
 {
   if(![super init]) return nil;
   
@@ -35,7 +35,7 @@
   return self;
 }
 
--(BOOL)loadFromRemoteObject:(NSDictionary *)object;
+-(BOOL)loadFromRemoteObject:(id)object;
 {
   [NSException raise:@"Not implemented" format:@"Please override loadFromRemoteObject:"];
   return NO;
@@ -47,5 +47,9 @@
   return nil;
 }
 
+-(NSString *)description;
+{
+  return [[self asRemoteObject] description];
+}
 
 @end

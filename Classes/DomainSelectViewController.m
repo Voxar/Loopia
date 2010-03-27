@@ -9,6 +9,7 @@
 #import "DomainSelectViewController.h"
 #import "LoopiaAppDelegate.h"
 #import "DomainViewController.h"
+#import "Loopia.h"
 
 @implementation DomainSelectViewController
 
@@ -103,8 +104,8 @@
     }
     
 	// Configure the cell.
-  NSDictionary *domain = [domains objectAtIndex:[indexPath row]];
-	cell.textLabel.text = [domain objectForKey:@"domain"];
+  LPDomain *domain = [domains objectAtIndex:[indexPath row]];
+	cell.textLabel.text = domain.name;
   cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
   
   return cell;
@@ -113,16 +114,16 @@
 
 -(id)loadContentForNextPageWithObject:(NSIndexPath*)indexPath;
 {  
-  NSDictionary *domain = [domains objectAtIndex:[indexPath row]];
+  LPDomain *domain = [domains objectAtIndex:[indexPath row]];
   
-  NSArray *subdomains = [[LoopiaAppDelegate sharedAPI] subdomainsForDomain:[domain objectForKey:@"domain"]];
+  NSArray *subdomains = [[LoopiaAppDelegate sharedAPI] subdomainsForDomainName:domain.name];
 
   return [NSArray arrayWithObjects:domain, subdomains, nil];
 }
 
 -(void)navigateToNextPageWithObject:(NSArray *)args;
 {
-  NSDictionary *domain = [args objectAtIndex:0];
+  LPDomain *domain = [args objectAtIndex:0];
   NSArray *subdomains = [args objectAtIndex:1];
   DomainViewController *domainView = [[DomainViewController alloc] initWithDomain:domain subdomains:subdomains];
   [domainView setDomain:domain];

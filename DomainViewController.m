@@ -9,12 +9,13 @@
 #import "DomainViewController.h"
 #import "SubDomainDetailViewController.h"
 #import "LoopiaAppDelegate.h"
+#import "AddSubdomainController.h"
 
 @implementation DomainViewController
 
 @synthesize domain, subdomains;
 
--(id)initWithDomain:(NSDictionary *)domain_ subdomains:(NSArray *)subdomains_;
+-(id)initWithDomain:(LPDomain *)domain_ subdomains:(NSArray *)subdomains_;
 {
   if(![self initWithNibName:@"DomainView" bundle:nil]) return nil;
   
@@ -39,17 +40,25 @@
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-  self.title = [domain objectForKey:@"domain"];
+  self.title = domain.name;
   
-  NSLog(@"%@", domain);
-  BOOL registered = [[domain objectForKey:@"registered"] boolValue];
-  BOOL paid = [[domain objectForKey:@"paid"] boolValue];
-  statusLabel.text = registered ? @"Registrerad" : @"Oregistrerad";
-  payButton.enabled = !paid;
-  int amount = [[domain objectForKey:@"unpaid_amount"] intValue];
-  payButton.titleLabel.text = paid ? @"Betalad" : [NSString stringWithFormat:@"Betala", amount];
+  NSLog(@"domainview didload%@", domain);
+  statusLabel.text = domain.registered ? @"Registrerad" : @"Oregistrerad";
+  payButton.enabled = !domain.paid;
+  payButton.titleLabel.text = domain.paid ? @"Betalad" : [NSString stringWithFormat:@"Betala %d Kr", domain.unpaidAmount];
+  
+  UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addSubdomain)];
+  self.navigationItem.rightBarButtonItem = addButton;
 }
 
+-(void)addSubdomain;
+{
+  AddSubdomainController *addSubdomainController = [[AddSubdomainController alloc] initWithDomain:domain.name];
+  UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:addSubdomainController];
+  [self presentModalViewController:nav animated:YES];
+  [addSubdomainController release];
+  [nav release];
+}
 
 /*
 - (void)viewWillAppear:(BOOL)animated {
@@ -128,8 +137,8 @@
   }
   
   // Set up the cell...
-  NSString *subdomain = [subdomains objectAtIndex:[indexPath row]];
-  cell.textLabel.text = subdomain;
+  LPSubdomain *subdomain = [subdomains objectAtIndex:[indexPath row]];
+  cell.textLabel.text = subdomain.name;
   cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
   return cell;
@@ -138,19 +147,17 @@
 
 -(id)loadContentForNextPageWithObject:(NSIndexPath*)indexPath;
 {
-  NSString *domainName = [domain objectForKey:@"domain"];
-  NSString *subdomain = [subdomains objectAtIndex:[indexPath row]];
-  NSArray *zoneInfo = [[LoopiaAppDelegate sharedAPI] zoneRecordsForDomain:domainName subdomain:subdomain];
+  LPSubdomain *subdomain = [subdomains objectAtIndex:[indexPath row]];
+  NSArray *zoneInfo = [[LoopiaAppDelegate sharedAPI] zoneRecordsForDomainName:domain.name subdomainName:subdomain.name];
   NSLog(@"%@\n%@", domain, subdomain);
-  return [NSArray arrayWithObjects:zoneInfo, domainName, subdomain, nil];
+  return [NSArray arrayWithObjects:zoneInfo, subdomain, nil];
 }
 
 -(void)navigateToNextPageWithObject:(id)args;
 {
   NSArray *zones = [args objectAtIndex:0];
-  NSString *domainName = [args objectAtIndex:1];
-  NSString *subdomain = [args objectAtIndex:2];
-  SubDomainDetailViewController *zoneView = [[[SubDomainDetailViewController alloc] initWithDomainName:domainName subdomain:subdomain zoneInfo:zones] autorelease];
+  LPSubdomain *subdomain = [args objectAtIndex:1];
+  SubDomainDetailViewController *zoneView = [[[SubDomainDetailViewController alloc] initWithDomain:domain subdomain:subdomain zones:zones] autorelease];
   [self.navigationController pushViewController:zoneView animated:YES];
 }
 

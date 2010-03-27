@@ -12,6 +12,8 @@
 #import "XMLRPCRequest.h"
 #import "XMLRPCResponse.h"
 #import "LPDNSEntry.h"
+#import "LPDomain.h"
+#import "LPSubdomain.h"
 
 NSString const * LoopiaDomainStatusOK = @"OK";
 NSString const * LoopiaDomainStatusOCCUPIED = @"OCCUPIED";
@@ -186,35 +188,68 @@ NSString const * LoopiaDomainDomainConfigurationHOSTING_WINDOWS = @"HOSTING_WIND
   [super dealloc];
 }
 
--(NSDictionary*) domain:(NSString *)domainName;
+-(NSDictionary*) domainForDomainName:(NSString *)domainName;
 {
   return [self call:@"getDomain" args:[NSArray arrayWithObject: domainName]];
 }
 
 -(NSArray *)domains;
 {
-  return [self call:@"getDomains" args:nil];
+  NSArray *domainInfos = [self call:@"getDomains" args:nil];
+  NSMutableArray *domains = [NSMutableArray array];
+  for(NSDictionary *info in domainInfos){
+    LPDomain *domain = [[LPDomain alloc] initWithRemoteObject:info];
+    [domains addObject:domain];
+  }
+  return domains;
 }
 
--(NSString *) statusForDomain:(NSString *)domainName;
+-(NSString *) statusForDomainName:(NSString *)domainName;
 {
   return (NSString *)[self call:@"domainIsFree" args:[NSArray arrayWithObject:domainName]];
 }
 
--(NSArray *)subdomainsForDomain:(NSString *)domain;
+-(NSArray *)subdomainsForDomainName:(NSString *)domain;
 {
-  return [self call:@"getSubdomains" args:[NSArray arrayWithObject:domain]];
+  NSArray *infoArray = [self call:@"getSubdomains" args:[NSArray arrayWithObject:domain]];
+  NSMutableArray *subdomains = [NSMutableArray array];
+  for(NSString *subdomainName in infoArray){
+    LPSubdomain *subdomain = [[LPSubdomain alloc] initWithRemoteObject:subdomainName];
+    [subdomains addObject:subdomain];
+  }
+  return subdomains;
 }
 
--(NSArray *)zoneRecordsForDomain:(NSString*)domain subdomain:(NSString *)subdomain;
+-(NSArray *)zoneRecordsForDomainName:(NSString*)domain subdomainName:(NSString *)subdomain;
 {
-  return [self call:@"getZoneRecords" args:[NSArray arrayWithObjects:domain, subdomain, nil]];
+  NSArray *infoArray = [self call:@"getZoneRecords" args:[NSArray arrayWithObjects:domain, subdomain, nil]];
+  NSMutableArray *records = [NSMutableArray array];
+  for(NSDictionary *dict in infoArray){
+    LPDNSEntry *entry = [[LPDNSEntry alloc] initWithRemoteObject:dict];
+    [records addObject:entry];
+    [entry release];
+  }
+  return records;
 }
 
--(BOOL)updateZoneRecord:(LPDNSEntry *)record forDomain:(NSString *)domain subdomain:(NSString*)subdomain;
+-(BOOL)updateZoneRecord:(LPDNSEntry *)record forDomainName:(NSString *)domain subdomainName:(NSString*)subdomain;
 {
   id ret = [self call:@"updateZoneRecord" args:[NSArray arrayWithObjects:domain, subdomain, [record asRemoteObject], nil]];
   NSLog(@"updateZoneRecord returned %@", ret);
+  return ret != nil;
+}
+
+-(BOOL)addZoneRecord:(LPDNSEntry *)record forDomainName:(NSString *)domain subdomainName:(NSString*)subdomain;
+{
+  id ret = [self call:@"addZoneRecord" args:[NSArray arrayWithObjects:domain, subdomain, [record asRemoteObject], nil]];
+  NSLog(@"addZoneRecord returned %@", ret);
+  return ret != nil;
+}
+
+-(BOOL)addSubdomainName:(NSString *)subdomain forDomainName:(NSString *)domain;
+{
+  id ret = [self call:@"addSubdomain" args:[NSArray arrayWithObjects:domain, subdomain, nil]];
+  NSLog(@"addSubdomain returned %@", ret);
   return ret != nil;
 }
 

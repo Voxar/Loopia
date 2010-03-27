@@ -11,4 +11,34 @@
 
 @implementation LPSubdomain
 
+@synthesize name;
+
+-(id)init
+{
+  if(![super init]) return nil;
+  
+  self.name = @"unnamed";
+  
+  return self;
+}
+
+-(void)dealloc;
+{
+  self.name = nil;
+  
+  [super dealloc];
+}
+
+-(BOOL)loadFromRemoteObject:(NSString *)object;
+{
+  self.name = object;
+  
+  return object != nil;
+}
+
+-(NSString *)asRemoteObject;
+{
+  return self.name;
+}
+
 @end
