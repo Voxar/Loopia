@@ -55,3 +55,8 @@ View DNS entries for a subdomain
 * Touch a DNS entry to edit it
 * Swipe a cell or touch the 'Edit'-button to remove DNS entries
 * Touch the plus icon to add a DNS entry
+
+Acknowledgements
+===
+XMLRPC lib from WordPress iPhone app [http://iphone.wordpress.org/development/]()
+MBProgressHUD [http://github.com/matej/MBProgressHUD]()

@@ -171,7 +171,6 @@
 			isa = PBXGroup;
 			children = (
 				21132F9F113F2BCA008E9785 /* Controls */,
-				21132DA1113F0FC5008E9785 /* Models */,
 				219E20B31139F5160053BFE8 /* LoopiaAPI */,
 				1D3623240D0F684500981E51 /* LoopiaAppDelegate.h */,
 				1D3623250D0F684500981E51 /* LoopiaAppDelegate.m */,
@@ -268,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				21F9FA8D113737BD00866299 /* XMLRPC */,
+				21132DA1113F0FC5008E9785 /* Models */,
 				219E1FDE113933EB0053BFE8 /* LoopiaAPI.h */,
 				219E1FDF113933EB0053BFE8 /* LoopiaAPI.m */,
 			);
