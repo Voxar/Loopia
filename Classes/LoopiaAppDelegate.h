@@ -14,6 +14,8 @@
   UINavigationController *navigationController;
   LoopiaAPI *api;
   NSMutableArray *accounts;
+
+  UIViewController *helpView;
 }
 
 

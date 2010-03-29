@@ -41,37 +41,67 @@
   NSLog(@"backgrounded result for %@: %@", method, result);
 }
 
+-(void)showHelpView;
+{
+  UIViewController *webController = [[UIViewController alloc] initWithNibName:@"WebView" bundle:nil];
+  helpView = [webController retain];
+  
+  NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"manual.html" ofType:nil]]];
+  [(UIWebView*)webController.view loadRequest:request];
+  UINavigationController *webNav = [[UINavigationController alloc] initWithRootViewController:webController];
+  UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(closeModal)];
+  webController.navigationItem.rightBarButtonItem = doneButton;
+  [navigationController presentModalViewController:webNav animated:YES];
+  [webController release];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
   // Override point for customization after app launch    
 	
-	[window addSubview:[navigationController view]];
-  [window makeKeyAndVisible];
+  NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+
+  [userDefaults registerDefaults:[NSDictionary dictionaryWithObjectsAndKeys:
+                                  [NSNumber numberWithBool:YES], @"firstRun",
+                                  nil]];
   
-  NSData *data = [[NSUserDefaults standardUserDefaults] dataForKey:@"accounts"];
+  NSData *data = [userDefaults dataForKey:@"accounts"];
   accounts = [[[NSKeyedUnarchiver unarchiveObjectWithData:data] mutableCopy] retain];
   NSLog(@"accounts %@", accounts);
   if(!accounts) accounts = [[NSMutableArray alloc] init];
   NSLog(@"Loaded accounts: %@", accounts);
-//  
-//  NSLog(@"domains: %@", [api domains]);
-//  NSLog(@"subdomains: %@", [api subdomainsForDomain:@"voxar.net"]);
-//  NSLog(@"Domain status (voxar.net): %@", [api statusForDomain:@"voxar.net"]);
-//  NSLog(@"Domain status (ofnejfnakjenfjkef.net): %@", [api statusForDomain:@"ofnejfnakjenfjkef.net"]);
-//  NSLog(@"domain: %@", [api domain:@"voxar.net"]);
-//  NSLog(@"zone info: %@", [api zoneRecordsForDomain:@"voxar.se" subdomain:@"www"]);
+  
+  
+  [window addSubview:[navigationController view]];
+  [window makeKeyAndVisible];
+  
+  BOOL firstRun = [userDefaults  boolForKey:@"firstRun"];
+  NSLog(@"FristRun? %d", firstRun);
+  [userDefaults setBool:NO forKey:@"firstRun"];
+  if(firstRun){
+    [self showHelpView];
+  }
+
   
 	return YES;
+}
+
+-(void)closeModal;
+{
+  [helpView dismissModalViewControllerAnimated:YES];
+  [helpView release];
+  helpView = nil;
 }
 
 /**
  applicationWillTerminate: saves changes in the application's managed object context before the application terminates.
  */
 - (void)applicationWillTerminate:(UIApplication *)application {
+  NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
   NSLog(@"Saving accounts: %@", accounts);
   NSData *data = [NSKeyedArchiver archivedDataWithRootObject:accounts];
-  [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"accounts"];
-  [[NSUserDefaults standardUserDefaults] synchronize];
+  [userDefaults setObject:data forKey:@"accounts"];
+  [userDefaults synchronize];
   NSLog(@"TEMINATED");
 }
 

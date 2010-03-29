@@ -40,12 +40,14 @@
   AccountEditViewController *editAccountController = [[AccountEditViewController alloc] initWithAccount:account];
   if(modal){
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:editAccountController];
+    editAccountController.title = @"New account";
     [self presentModalViewController:nav animated:YES];
     [nav release];
   } else
     [self.navigationController pushViewController:editAccountController animated:YES];
   [editAccountController release];
 }
+
 
 - (void)viewDidLoad {
   [super viewDidLoad];
@@ -58,13 +60,15 @@
   
   [[self navigationItem] setRightBarButtonItem:[self editButtonItem]];
   
+  UIBarButtonItem *helpButton = [[UIBarButtonItem alloc] initWithTitle:@"Help" style:UIBarButtonItemStyleBordered target:[LoopiaAppDelegate standardLoopiaAppDelegate] action:@selector(showHelpView)];
+  self.navigationItem.leftBarButtonItem = helpButton;
+  [helpButton release];
+  
   UIBarButtonItem *spaceButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
   UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addAccount)];
   [self setToolbarItems:[NSArray arrayWithObjects:spaceButton, addButton, nil]];
   [addButton release];
   [spaceButton release];
-  
-  
 }
 
 -(void)setEditing:(BOOL)editing animated:(BOOL)animated

@@ -15,7 +15,7 @@
 
 @implementation SubDomainDetailViewController
 
-@synthesize domain, subdomain, zoneInfoArray;
+@synthesize domain, subdomain, zoneInfoArray, progressHud;
 
 -(id)initWithDomain:(LPDomain *)domain_ subdomain:(LPSubdomain *)subdomain_ zones:(NSArray *)zones_;
 {
@@ -123,6 +123,26 @@
     // e.g. self.myOutlet = nil;
 }
 
+-(void)removeEntry:(LPDNSEntry*)entry;
+{
+  NSLog(@"removing zone %@", entry);
+  BOOL success = [[LoopiaAppDelegate sharedAPI] removeZoneRecord:entry forDomainName:domain.name subdomainName:subdomain.name];
+  NSLog(success ? @"OK" : @"FAIL");
+  [self performSelectorOnMainThread:@selector(didRemoveEntry:) withObject:(success ? entry : nil) waitUntilDone:NO];
+}
+
+-(void)didRemoveEntry:(LPDNSEntry*)entry;
+{
+  if(entry){
+    NSUInteger index = [zoneInfoArray indexOfObject:entry];
+    
+    NSMutableArray *mutableZones = [zoneInfoArray mutableCopyWithZone:nil];
+    [mutableZones removeObject:entry];
+    self.zoneInfoArray = mutableZones;
+    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+  }
+}
+
 
 #pragma mark Table view methods
 
@@ -182,16 +202,10 @@
       // Delete the row from the data source
       
       LPDNSEntry *entry = [zoneInfoArray objectAtIndex:indexPath.row];
-      NSLog(@"removing zone %@", entry);
-      BOOL success = [[LoopiaAppDelegate sharedAPI] removeZoneRecord:entry forDomainName:domain.name subdomainName:subdomain.name];
-      NSLog(success ? @"OK" : @"FAIL");
-      if(success){
-        NSMutableArray *mutableZones = [zoneInfoArray mutableCopyWithZone:nil];
-        [mutableZones removeObjectAtIndex:indexPath.row];
-        self.zoneInfoArray = mutableZones;
-        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-      }
-      
+      self.progressHud = [[MBProgressHUD alloc] initWithView:self.view];
+      self.progressHud.labelText = @"Removing record";
+      [self.view addSubview:self.progressHud];
+      [self.progressHud showWhileExecuting:@selector(removeEntry:) onTarget:self withObject:entry animated:YES];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
       // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view

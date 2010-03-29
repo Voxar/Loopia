@@ -11,7 +11,7 @@
 
 @implementation AddSubdomainController
 
-@synthesize delegate;
+@synthesize delegate, saveProgressHud;
 
 -(id)initWithDomain:(LPDomain *)domain_;
 {
@@ -40,6 +40,8 @@
   
   [saveButton release];
   [cancelButton release];
+  
+  textField.delegate = self;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -54,13 +56,16 @@
 
 -(void)saveAction;
 {
-  [self performSelectorInBackground:@selector(backgroundSave) withObject:nil];
+  [textField resignFirstResponder];
+  self.saveProgressHud = [[MBProgressHUD alloc] initWithView:self.view];
+  self.saveProgressHud.labelText = @"Saving";
+  [self.view addSubview:saveProgressHud];
+  [self.saveProgressHud showWhileExecuting:@selector(save) onTarget:self withObject:nil animated:YES];
+//  [self performSelectorInBackground:@selector(backgroundSave) withObject:nil];
 }
 
--(void)backgroundSave;
+-(void)save;
 {
-  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-  
   LPSubdomain *subdomain = [[LPSubdomain alloc] init];
   subdomain.name = textField.text;
   
@@ -70,7 +75,6 @@
   [self performSelectorOnMainThread:@selector(saveComplete:) withObject:(success ? subdomain : nil) waitUntilDone:NO];
   
   [subdomain release];
-  [pool release];
 }
 
 -(void)saveComplete:(LPSubdomain *)subdomain;
@@ -78,6 +82,15 @@
   [delegate addSubdomain:self savedSubdomain:subdomain withSuccess:(subdomain ? YES : NO)];
   [self dismissModalViewControllerAnimated:YES];
 }
+
+- (void)hudWasHidden;
+{
+  [saveProgressHud removeFromSuperview];
+  self.saveProgressHud = nil;
+}
+
+
+
 
 /*
 // Override to allow orientations other than the default portrait orientation.
@@ -100,6 +113,11 @@
   // e.g. self.myOutlet = nil;
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField; 
+{
+  [self saveAction];
+  return YES;
+}
 
 - (void)dealloc {
   [domain release];

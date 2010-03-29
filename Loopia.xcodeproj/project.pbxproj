@@ -22,12 +22,16 @@
 		21132F9D113F2AC5008E9785 /* AccountEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21132F9B113F2AC5008E9785 /* AccountEditViewController.m */; };
 		21132F9E113F2AC5008E9785 /* AccountEditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21132F9C113F2AC5008E9785 /* AccountEditView.xib */; };
 		21132FA3113F2BFE008E9785 /* EditableDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21132FA2113F2BFE008E9785 /* EditableDetailCell.m */; };
+		2125EC791160C9BF0031BC1F /* manual.html in Resources */ = {isa = PBXBuildFile; fileRef = 2125EC781160C9BF0031BC1F /* manual.html */; };
+		2125ED7A1160E4BA0031BC1F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2125ED571160E4BA0031BC1F /* MBProgressHUD.m */; };
+		21286D0B115E7E5E00669E49 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 21286D0A115E7E5E00669E49 /* icon.png */; };
 		2159CAE711406D7200CDD2AC /* EditableDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2159CAE611406D7200CDD2AC /* EditableDetailCell.xib */; };
 		2186E373115E15D900FAD4ED /* AddZoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2186E372115E15D900FAD4ED /* AddZoneViewController.m */; };
 		2186E499115E27B400FAD4ED /* AddSubdomain.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2186E498115E27B400FAD4ED /* AddSubdomain.xib */; };
 		2186E49D115E288F00FAD4ED /* AddSubdomainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2186E49C115E288F00FAD4ED /* AddSubdomainController.m */; };
 		2186E90F115E706D00FAD4ED /* SearchDomainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2186E90D115E706D00FAD4ED /* SearchDomainViewController.m */; };
 		2186E910115E706D00FAD4ED /* SearchDomainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2186E90E115E706D00FAD4ED /* SearchDomainView.xib */; };
+		2186E986115E7AB000FAD4ED /* WebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2186E985115E7AB000FAD4ED /* WebView.xib */; };
 		219E1FE0113933EB0053BFE8 /* LoopiaAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 219E1FDF113933EB0053BFE8 /* LoopiaAPI.m */; };
 		219E21141139FDC10053BFE8 /* DomainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 219E21121139FDC10053BFE8 /* DomainViewController.m */; };
 		219E21151139FDC10053BFE8 /* DomainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219E21131139FDC10053BFE8 /* DomainView.xib */; };
@@ -83,6 +87,10 @@
 		21132F9C113F2AC5008E9785 /* AccountEditView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AccountEditView.xib; path = Classes/AccountEditView.xib; sourceTree = "<group>"; };
 		21132FA1113F2BFE008E9785 /* EditableDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditableDetailCell.h; sourceTree = "<group>"; };
 		21132FA2113F2BFE008E9785 /* EditableDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditableDetailCell.m; sourceTree = "<group>"; };
+		2125EC781160C9BF0031BC1F /* manual.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = manual.html; sourceTree = "<group>"; };
+		2125ED561160E4BA0031BC1F /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		2125ED571160E4BA0031BC1F /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		21286D0A115E7E5E00669E49 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		2159CAE611406D7200CDD2AC /* EditableDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditableDetailCell.xib; sourceTree = "<group>"; };
 		2186E371115E15D900FAD4ED /* AddZoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddZoneViewController.h; sourceTree = "<group>"; };
 		2186E372115E15D900FAD4ED /* AddZoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddZoneViewController.m; sourceTree = "<group>"; };
@@ -92,6 +100,7 @@
 		2186E90C115E706D00FAD4ED /* SearchDomainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchDomainViewController.h; path = ../SearchDomainViewController.h; sourceTree = "<group>"; };
 		2186E90D115E706D00FAD4ED /* SearchDomainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchDomainViewController.m; path = ../SearchDomainViewController.m; sourceTree = "<group>"; };
 		2186E90E115E706D00FAD4ED /* SearchDomainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchDomainView.xib; sourceTree = "<group>"; };
+		2186E985115E7AB000FAD4ED /* WebView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebView.xib; sourceTree = "<group>"; };
 		219E1FDE113933EB0053BFE8 /* LoopiaAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoopiaAPI.h; sourceTree = "<group>"; };
 		219E1FDF113933EB0053BFE8 /* LoopiaAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoopiaAPI.m; sourceTree = "<group>"; };
 		219E21111139FDC10053BFE8 /* DomainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DomainViewController.h; path = ../DomainViewController.h; sourceTree = "<group>"; };
@@ -225,6 +234,16 @@
 			name = Controls;
 			sourceTree = "<group>";
 		};
+		2125ED1A1160E4BA0031BC1F /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				2125ED561160E4BA0031BC1F /* MBProgressHUD.h */,
+				2125ED571160E4BA0031BC1F /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
+			path = Vendor/MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		219E20B31139F5160053BFE8 /* LoopiaAPI */ = {
 			isa = PBXGroup;
 			children = (
@@ -281,6 +300,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				2125ED1A1160E4BA0031BC1F /* MBProgressHUD */,
 				28A0AAE50D9B0CCF005BE974 /* Loopia_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
@@ -302,6 +322,9 @@
 				2159CAE611406D7200CDD2AC /* EditableDetailCell.xib */,
 				2186E498115E27B400FAD4ED /* AddSubdomain.xib */,
 				2186E90E115E706D00FAD4ED /* SearchDomainView.xib */,
+				2186E985115E7AB000FAD4ED /* WebView.xib */,
+				21286D0A115E7E5E00669E49 /* icon.png */,
+				2125EC781160C9BF0031BC1F /* manual.html */,
 			);
 			name = "Resources-iPhone";
 			sourceTree = "<group>";
@@ -377,6 +400,9 @@
 				2159CAE711406D7200CDD2AC /* EditableDetailCell.xib in Resources */,
 				2186E499115E27B400FAD4ED /* AddSubdomain.xib in Resources */,
 				2186E910115E706D00FAD4ED /* SearchDomainView.xib in Resources */,
+				2186E986115E7AB000FAD4ED /* WebView.xib in Resources */,
+				21286D0B115E7E5E00669E49 /* icon.png in Resources */,
+				2125EC791160C9BF0031BC1F /* manual.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +445,7 @@
 				2186E373115E15D900FAD4ED /* AddZoneViewController.m in Sources */,
 				2186E49D115E288F00FAD4ED /* AddSubdomainController.m in Sources */,
 				2186E90F115E706D00FAD4ED /* SearchDomainViewController.m in Sources */,
+				2125ED7A1160E4BA0031BC1F /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

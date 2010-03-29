@@ -22,6 +22,16 @@
   return self;
 }
 
+
+-(void)setupAccount;
+{
+  UIViewController *webController = [[UIViewController alloc] initWithNibName:@"WebView" bundle:nil];
+  NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://customerzone.loopia.se/settings/loopia-api"]];
+  [(UIWebView*)webController.view loadRequest:request];
+  [self.navigationController pushViewController:webController animated:YES];
+  [webController release];
+}
+
 -(void)save
 {
   account.username = [NSString stringWithFormat:@"%@@loopiaapi", usernameField.text];

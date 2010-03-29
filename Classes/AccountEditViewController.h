@@ -20,4 +20,6 @@
 
 -(id)initWithAccount:(LPAccount*)account_;
 
+-(IBAction)setupAccount;
+
 @end

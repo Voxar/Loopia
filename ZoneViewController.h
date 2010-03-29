@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "EditableDetailCell.h"
 #import "Loopia.h"
+#import "MBProgressHUD.h"
 
 @class LPDNSEntry;
 
@@ -26,7 +27,7 @@ enum  {
 @end
 
 
-@interface ZoneViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate> {
+@interface ZoneViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, MBProgressHUDDelegate> {
   LPDNSEntry *entry;
   LPDomain *domain;
   LPSubdomain *subdomain;
@@ -37,6 +38,8 @@ enum  {
   EditableDetailCell *timeToLiveCell;
   EditableDetailCell *priorityCell;
   EditableDetailCell *dataCell;
+  
+  MBProgressHUD *saveProgressHud;
   
   IBOutlet UIBarButtonItem *saveButton;
   IBOutlet UIPickerView *typePicker;
@@ -49,13 +52,17 @@ enum  {
 @property (nonatomic, retain) LPDomain *domain;
 @property (nonatomic, retain) LPSubdomain *subdomain;
 
+@property (nonatomic, retain) MBProgressHUD *saveProgressHud;
+
 -(id)initWithDNSEntry:(LPDNSEntry*)entry_ forDomain:(LPDomain *)domain_ subdomain:(LPSubdomain *)subdomain_;
 
 -(IBAction)saveAction:(id)sender;
 
 
 
--(void)backgroundSave;
+-(void)saveEntry:(LPDNSEntry*)newEntry;
 -(void)doneSaveing:(LPDNSEntry *)savedEntry;
+
+- (void)hudWasHidden;
 
 @end

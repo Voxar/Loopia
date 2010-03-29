@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Loopia.h"
+#import "MBProgressHUD.h"
 
 @class AddSubdomainController;
 @protocol AddSubdomainDelegate
@@ -17,15 +18,21 @@
 @end
 
 
-@interface AddSubdomainController : UIViewController {
+@interface AddSubdomainController : UIViewController <MBProgressHUDDelegate, UITextFieldDelegate> {
   id<AddSubdomainDelegate> delegate;
   LPDomain *domain;
+  MBProgressHUD *saveProgressHud;
   
   IBOutlet UITextField *textField;
 }
 
 @property (nonatomic, assign) id<AddSubdomainDelegate> delegate;
+@property (nonatomic, retain) MBProgressHUD *saveProgressHud;
 
 -(id)initWithDomain:(LPDomain *)domain;
+
+-(void)save;
+-(void)saveComplete:(LPSubdomain *)subdomain;
+- (void)hudWasHidden;
 
 @end

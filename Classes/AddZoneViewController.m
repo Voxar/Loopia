@@ -41,15 +41,13 @@
   [delegate saveZoneComplete:savedEntry];
 }
 
--(void)backgroundSave; //override
+-(void)saveEntry:(LPDNSEntry*)newEntry; //override
 {
-  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-  BOOL success = [[LoopiaAppDelegate sharedAPI] addZoneRecord:entry forDomainName:domain.name subdomainName:subdomain.name];
+  BOOL success = [[LoopiaAppDelegate sharedAPI] addZoneRecord:newEntry forDomainName:domain.name subdomainName:subdomain.name];
   if(success)
-    [self performSelectorOnMainThread:@selector(doneSaveing:) withObject:entry waitUntilDone:NO];
+    [self performSelectorOnMainThread:@selector(doneSaveing:) withObject:newEntry waitUntilDone:NO];
   else
     [self performSelectorOnMainThread:@selector(doneSaveing:) withObject:nil waitUntilDone:NO];
-  [pool release];
 }
 
 

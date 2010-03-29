@@ -13,7 +13,7 @@
 
 @implementation DomainViewController
 
-@synthesize domain, subdomains;
+@synthesize domain, subdomains, removeSubdomainHud;
 
 -(id)initWithDomain:(LPDomain *)domain_ subdomains:(NSArray *)subdomains_;
 {
@@ -50,9 +50,10 @@
   self.title = domain.name;
   
   NSLog(@"domainview didload%@", domain);
-  statusLabel.text = domain.registered ? @"Registrerad" : @"Oregistrerad";
+  statusLabel.text = domain.registered ? @"Registered" : @"Unregistered";
   payButton.enabled = !domain.paid;
-  payButton.titleLabel.text = domain.paid ? @"Betalad" : [NSString stringWithFormat:@"Betala %d Kr", domain.unpaidAmount];
+  [payButton setTitle:domain.paid ? @"Paid" : [NSString stringWithFormat:@"Pay %.2f Kr", domain.unpaidAmount] forState:payButton.state];
+  [payButton setNeedsLayout];
   
   
   UIBarButtonItem *spaceButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
@@ -74,12 +75,41 @@
   [nav release];
 }
 
+-(void)didRemoveSubdomain:(LPSubdomain *)subdomain;
+{
+  if(subdomain){
+    NSUInteger index = [subdomains indexOfObject:subdomain];
+    
+    NSMutableArray *mutableSubdomains = [subdomains mutableCopyWithZone:nil];
+    [mutableSubdomains removeObject:subdomain];
+    self.subdomains = mutableSubdomains;
+    
+    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationFade];  
+  }
+}
+
+-(void)removeSubdomain:(LPSubdomain *)subdomain;
+{
+  NSLog(@"removing subdomain %@", subdomain);
+  BOOL success = [[LoopiaAppDelegate sharedAPI] removeSubdomainName:subdomain.name forDomainName:domain.name];
+  NSLog(success ? @"OK" : @"FAIL");
+  if(success){
+    [self performSelectorOnMainThread:@selector(didRemoveSubdomain:) withObject:(success ? subdomain : nil) waitUntilDone:NO];
+  }
+}
+
 -(void)addSubdomain:(AddSubdomainController*)controller savedSubdomain:(LPSubdomain *)savedSubdomain withSuccess:(BOOL)success;
 {
   if(success){
     self.subdomains = [subdomains arrayByAddingObject:savedSubdomain];
     [self.tableView reloadData];
   }
+}
+
+- (void)hudWasHidden;
+{
+  [self.removeSubdomainHud removeFromSuperview];
+  self.removeSubdomainHud = nil;
 }
 
 /*
@@ -127,8 +157,8 @@
 
 -(IBAction)payButtonAction:(id)sender;
 {
-  payButton.titleLabel.text = @"Betald";
   payButton.enabled = NO;
+  [payButton setTitle:@"Paid" forState:UIControlStateDisabled];
 }
 
 #pragma mark Table view methods
@@ -145,7 +175,7 @@
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section;
 {
-  return @"Subdomäner";
+  return @"Subdomains";
 }
 
 // Customize the appearance of table view cells.
@@ -205,15 +235,10 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
       // Delete the row from the data source
       LPSubdomain *subdomain = [subdomains objectAtIndex:indexPath.row];
-      NSLog(@"removing subdomain %@", subdomain);
-      BOOL success = [[LoopiaAppDelegate sharedAPI] removeSubdomainName:subdomain.name forDomainName:domain.name];
-      NSLog(success ? @"OK" : @"FAIL");
-      if(success){
-        NSMutableArray *mutableSubdomains = [subdomains mutableCopyWithZone:nil];
-        [mutableSubdomains removeObject:subdomain];
-        self.subdomains = mutableSubdomains;
-        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-      }
+      self.removeSubdomainHud = [[MBProgressHUD alloc] initWithView:self.view];
+      self.removeSubdomainHud.labelText = [NSString stringWithFormat:@"Removing %@", subdomain.name];
+      [self.view addSubview:removeSubdomainHud];
+      [self.removeSubdomainHud showWhileExecuting:@selector(removeSubdomain:) onTarget:self withObject:subdomain animated:YES];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view

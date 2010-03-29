@@ -9,12 +9,12 @@
 #import "ZoneViewController.h"
 #import "LPDNSEntry.h"
 #import "LoopiaAppDelegate.h"
-
+#import "MBProgressHUD.h"
 
 
 @implementation ZoneViewController
 
-@synthesize delegate, entry, domain, subdomain;
+@synthesize delegate, entry, domain, subdomain, saveProgressHud;
 
 -(id)initWithDNSEntry:(LPDNSEntry*)entry_ forDomain:(LPDomain *)domain_ subdomain:(LPSubdomain *)subdomain_;
 {
@@ -123,31 +123,48 @@
 
 #pragma mark Actions
 
--(void)doneSaveing:(LPDNSEntry *)savedEntry;
+-(void)doneSaveing:(LPDNSEntry *)newEntry;
 {
-  [delegate saveZoneComplete:savedEntry];
+  [delegate saveZoneComplete:newEntry];
+  [self.navigationController popViewControllerAnimated:YES];
 }
 
--(void)backgroundSave;
+-(void)saveEntry:(LPDNSEntry *)newEntry;
 {
-  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
   BOOL success = [[LoopiaAppDelegate sharedAPI] updateZoneRecord:entry forDomainName:domain.name subdomainName:subdomain.name];
-  if(success)
+  if(success){
+    //copy back the temp entry to the edited one to mirror changes to parent view
+    [entry loadFromRemoteObject:[newEntry asRemoteObject]];
     [self performSelectorOnMainThread:@selector(doneSaveing:) withObject:entry waitUntilDone:NO];
-  else
+  }else
     [self performSelectorOnMainThread:@selector(doneSaveing:) withObject:nil waitUntilDone:NO];
-  [pool release];
 }
 
 -(IBAction)saveAction:(id)sender;
 {
+  [self hideKeyboard];
+  [self hidePicker];
+  //Copy current entry and set new values
   NSNumberFormatter *nf = [[[NSNumberFormatter alloc] init] autorelease];
-  entry.ttl = [nf numberFromString:timeToLiveCell.textField.text];
-  entry.type = typeCell.detailTextLabel.text;
-  entry.priority = [nf numberFromString:priorityCell.textField.text];
-  entry.data = dataCell.textField.text;
+  LPDNSEntry *savedEntry = [[LPDNSEntry alloc] initWithRemoteObject:[entry asRemoteObject]];
+  savedEntry.ttl = [nf numberFromString:timeToLiveCell.textField.text];
+  savedEntry.type = typeCell.detailTextLabel.text;
+  savedEntry.priority = [nf numberFromString:priorityCell.textField.text];
+  savedEntry.data = dataCell.textField.text;
   
-  [self performSelectorInBackground:@selector(backgroundSave) withObject:nil];
+  //Show indicator and save
+  self.saveProgressHud = [[MBProgressHUD alloc] initWithView:self.view];
+  self.saveProgressHud.labelText = @"Saving";
+  [self.view addSubview:saveProgressHud];
+  [self.saveProgressHud showWhileExecuting:@selector(saveEntry:) onTarget:self withObject:savedEntry animated:YES];
+  
+  [savedEntry release];
+}
+
+- (void)hudWasHidden;
+{
+  [saveProgressHud removeFromSuperview];
+  self.saveProgressHud = nil;
 }
 
 #pragma mark TableView
@@ -252,6 +269,17 @@
 {
   [recordsTableView selectRowAtIndexPath:nil animated:NO scrollPosition:0];
   [self hidePicker];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField; 
+{
+  if(textField == dataCell.textField)
+    [timeToLiveCell.textField becomeFirstResponder];
+  else if(textField == timeToLiveCell.textField)
+    [priorityCell.textField becomeFirstResponder];
+  else if(textField == priorityCell.textField)
+    [self saveAction:nil];
+  return YES;
 }
 
 @end
