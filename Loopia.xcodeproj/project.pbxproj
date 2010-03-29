@@ -12,7 +12,6 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		21132D05113EE6EA008E9785 /* AccountSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21132D03113EE6EA008E9785 /* AccountSelectViewController.m */; };
-		21132D06113EE6EA008E9785 /* AccountSelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21132D04113EE6EA008E9785 /* AccountSelectView.xib */; };
 		21132DA4113F0FDB008E9785 /* LPAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 21132DA3113F0FDB008E9785 /* LPAccount.m */; };
 		21132DA7113F0FE2008E9785 /* LPDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 21132DA6113F0FE2008E9785 /* LPDomain.m */; };
 		21132DAA113F0FEF008E9785 /* LPSubdomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 21132DA9113F0FEF008E9785 /* LPSubdomain.m */; };
@@ -20,26 +19,29 @@
 		21132DB0113F1015008E9785 /* LPContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 21132DAF113F1015008E9785 /* LPContact.m */; };
 		21132DB3113F101C008E9785 /* LPObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 21132DB2113F101C008E9785 /* LPObject.m */; };
 		21132F9D113F2AC5008E9785 /* AccountEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21132F9B113F2AC5008E9785 /* AccountEditViewController.m */; };
-		21132F9E113F2AC5008E9785 /* AccountEditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21132F9C113F2AC5008E9785 /* AccountEditView.xib */; };
 		21132FA3113F2BFE008E9785 /* EditableDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21132FA2113F2BFE008E9785 /* EditableDetailCell.m */; };
-		2125EC791160C9BF0031BC1F /* manual.html in Resources */ = {isa = PBXBuildFile; fileRef = 2125EC781160C9BF0031BC1F /* manual.html */; };
 		2125ED7A1160E4BA0031BC1F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2125ED571160E4BA0031BC1F /* MBProgressHUD.m */; };
-		2125F040116152DC0031BC1F /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 2125F03F116152DC0031BC1F /* 37x-Checkmark.png */; };
+		2125F09011615F4E0031BC1F /* DomainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2125F08F11615F4E0031BC1F /* DomainViewController.m */; };
+		2125F09311615F6C0031BC1F /* SubDomainDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2125F09211615F6C0031BC1F /* SubDomainDetailViewController.m */; };
+		2125F09611615F750031BC1F /* ZoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2125F09511615F750031BC1F /* ZoneViewController.m */; };
+		2125F0A311615FA70031BC1F /* AddSubdomain.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2125F09A11615FA70031BC1F /* AddSubdomain.xib */; };
+		2125F0A411615FA70031BC1F /* DomainSelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2125F09B11615FA70031BC1F /* DomainSelectView.xib */; };
+		2125F0A511615FA70031BC1F /* DomainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2125F09C11615FA70031BC1F /* DomainView.xib */; };
+		2125F0A611615FA70031BC1F /* EditableDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2125F09D11615FA70031BC1F /* EditableDetailCell.xib */; };
+		2125F0A711615FA70031BC1F /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2125F09E11615FA70031BC1F /* MainWindow.xib */; };
+		2125F0A811615FA70031BC1F /* SearchDomainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2125F09F11615FA70031BC1F /* SearchDomainView.xib */; };
+		2125F0A911615FA70031BC1F /* SubDomainDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2125F0A011615FA70031BC1F /* SubDomainDetailView.xib */; };
+		2125F0AA11615FA70031BC1F /* WebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2125F0A111615FA70031BC1F /* WebView.xib */; };
+		2125F0AB11615FA70031BC1F /* ZoneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2125F0A211615FA70031BC1F /* ZoneView.xib */; };
+		2125F0B011615FC90031BC1F /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 2125F0AE11615FC90031BC1F /* 37x-Checkmark.png */; };
+		2125F0B111615FC90031BC1F /* manual.html in Resources */ = {isa = PBXBuildFile; fileRef = 2125F0AF11615FC90031BC1F /* manual.html */; };
+		2125F0B611615FD90031BC1F /* SearchDomainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2125F0B511615FD90031BC1F /* SearchDomainViewController.m */; };
+		2125F0C51161604A0031BC1F /* AccountEditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2125F0C31161604A0031BC1F /* AccountEditView.xib */; };
+		2125F0C61161604A0031BC1F /* AccountSelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2125F0C41161604A0031BC1F /* AccountSelectView.xib */; };
 		21286D0B115E7E5E00669E49 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 21286D0A115E7E5E00669E49 /* icon.png */; };
-		2159CAE711406D7200CDD2AC /* EditableDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2159CAE611406D7200CDD2AC /* EditableDetailCell.xib */; };
 		2186E373115E15D900FAD4ED /* AddZoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2186E372115E15D900FAD4ED /* AddZoneViewController.m */; };
-		2186E499115E27B400FAD4ED /* AddSubdomain.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2186E498115E27B400FAD4ED /* AddSubdomain.xib */; };
 		2186E49D115E288F00FAD4ED /* AddSubdomainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2186E49C115E288F00FAD4ED /* AddSubdomainController.m */; };
-		2186E90F115E706D00FAD4ED /* SearchDomainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2186E90D115E706D00FAD4ED /* SearchDomainViewController.m */; };
-		2186E910115E706D00FAD4ED /* SearchDomainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2186E90E115E706D00FAD4ED /* SearchDomainView.xib */; };
-		2186E986115E7AB000FAD4ED /* WebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2186E985115E7AB000FAD4ED /* WebView.xib */; };
 		219E1FE0113933EB0053BFE8 /* LoopiaAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 219E1FDF113933EB0053BFE8 /* LoopiaAPI.m */; };
-		219E21141139FDC10053BFE8 /* DomainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 219E21121139FDC10053BFE8 /* DomainViewController.m */; };
-		219E21151139FDC10053BFE8 /* DomainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219E21131139FDC10053BFE8 /* DomainView.xib */; };
-		219E21A3113A05CB0053BFE8 /* SubDomainDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 219E21A1113A05CB0053BFE8 /* SubDomainDetailViewController.m */; };
-		219E21A4113A05CB0053BFE8 /* SubDomainDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219E21A2113A05CB0053BFE8 /* SubDomainDetailView.xib */; };
-		219E21DD113A7CFC0053BFE8 /* ZoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 219E21DB113A7CFC0053BFE8 /* ZoneViewController.m */; };
-		219E21DE113A7CFC0053BFE8 /* ZoneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219E21DC113A7CFC0053BFE8 /* ZoneView.xib */; };
 		219E2298113A8BB80053BFE8 /* TabeViewControllerWithBackgroundLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 219E2297113A8BB80053BFE8 /* TabeViewControllerWithBackgroundLoading.m */; };
 		219E23A6113AA0E40053BFE8 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 219E23A5113AA0E40053BFE8 /* Default.png */; };
 		21F9FA9C113737BD00866299 /* XMLValueDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F9FA8F113737BD00866299 /* XMLValueDecoder.m */; };
@@ -56,8 +58,6 @@
 		21F9FAB3113737E200866299 /* NSString+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F9FAB0113737E200866299 /* NSString+Util.m */; };
 		28860BE50F44EE6400985440 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28860BE40F44EE6400985440 /* CoreData.framework */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
-		2899E5600DE3E45000AC0155 /* DomainSelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E55F0DE3E45000AC0155 /* DomainSelectView.xib */; };
-		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
 		28C286E10D94DF7D0034E888 /* DomainSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* DomainSelectViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -69,7 +69,6 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		21132D02113EE6EA008E9785 /* AccountSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountSelectViewController.h; sourceTree = "<group>"; };
 		21132D03113EE6EA008E9785 /* AccountSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountSelectViewController.m; sourceTree = "<group>"; };
-		21132D04113EE6EA008E9785 /* AccountSelectView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AccountSelectView.xib; path = Classes/AccountSelectView.xib; sourceTree = "<group>"; };
 		21132DA2113F0FDB008E9785 /* LPAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPAccount.h; sourceTree = "<group>"; };
 		21132DA3113F0FDB008E9785 /* LPAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LPAccount.m; sourceTree = "<group>"; };
 		21132DA5113F0FE2008E9785 /* LPDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LPDomain.h; sourceTree = "<group>"; };
@@ -85,35 +84,38 @@
 		21132DCA113F13A4008E9785 /* Loopia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Loopia.h; sourceTree = "<group>"; };
 		21132F9A113F2AC5008E9785 /* AccountEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountEditViewController.h; sourceTree = "<group>"; };
 		21132F9B113F2AC5008E9785 /* AccountEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountEditViewController.m; sourceTree = "<group>"; };
-		21132F9C113F2AC5008E9785 /* AccountEditView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AccountEditView.xib; path = Classes/AccountEditView.xib; sourceTree = "<group>"; };
 		21132FA1113F2BFE008E9785 /* EditableDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditableDetailCell.h; sourceTree = "<group>"; };
 		21132FA2113F2BFE008E9785 /* EditableDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditableDetailCell.m; sourceTree = "<group>"; };
-		2125EC781160C9BF0031BC1F /* manual.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = manual.html; sourceTree = "<group>"; };
 		2125ED561160E4BA0031BC1F /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		2125ED571160E4BA0031BC1F /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		2125F03F116152DC0031BC1F /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark.png"; sourceTree = "<group>"; };
+		2125F08E11615F4E0031BC1F /* DomainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DomainViewController.h; sourceTree = "<group>"; };
+		2125F08F11615F4E0031BC1F /* DomainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DomainViewController.m; sourceTree = "<group>"; };
+		2125F09111615F6C0031BC1F /* SubDomainDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubDomainDetailViewController.h; sourceTree = "<group>"; };
+		2125F09211615F6C0031BC1F /* SubDomainDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubDomainDetailViewController.m; sourceTree = "<group>"; };
+		2125F09411615F750031BC1F /* ZoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoneViewController.h; sourceTree = "<group>"; };
+		2125F09511615F750031BC1F /* ZoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoneViewController.m; sourceTree = "<group>"; };
+		2125F09A11615FA70031BC1F /* AddSubdomain.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AddSubdomain.xib; path = Resources/Views/AddSubdomain.xib; sourceTree = "<group>"; };
+		2125F09B11615FA70031BC1F /* DomainSelectView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DomainSelectView.xib; path = Resources/Views/DomainSelectView.xib; sourceTree = "<group>"; };
+		2125F09C11615FA70031BC1F /* DomainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DomainView.xib; path = Resources/Views/DomainView.xib; sourceTree = "<group>"; };
+		2125F09D11615FA70031BC1F /* EditableDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = EditableDetailCell.xib; path = Resources/Views/EditableDetailCell.xib; sourceTree = "<group>"; };
+		2125F09E11615FA70031BC1F /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainWindow.xib; path = Resources/Views/MainWindow.xib; sourceTree = "<group>"; };
+		2125F09F11615FA70031BC1F /* SearchDomainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SearchDomainView.xib; path = Resources/Views/SearchDomainView.xib; sourceTree = "<group>"; };
+		2125F0A011615FA70031BC1F /* SubDomainDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SubDomainDetailView.xib; path = Resources/Views/SubDomainDetailView.xib; sourceTree = "<group>"; };
+		2125F0A111615FA70031BC1F /* WebView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = WebView.xib; path = Resources/Views/WebView.xib; sourceTree = "<group>"; };
+		2125F0A211615FA70031BC1F /* ZoneView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ZoneView.xib; path = Resources/Views/ZoneView.xib; sourceTree = "<group>"; };
+		2125F0AE11615FC90031BC1F /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "37x-Checkmark.png"; path = "Resources/37x-Checkmark.png"; sourceTree = "<group>"; };
+		2125F0AF11615FC90031BC1F /* manual.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = manual.html; path = Resources/manual.html; sourceTree = "<group>"; };
+		2125F0B411615FD90031BC1F /* SearchDomainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDomainViewController.h; sourceTree = "<group>"; };
+		2125F0B511615FD90031BC1F /* SearchDomainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDomainViewController.m; sourceTree = "<group>"; };
+		2125F0C31161604A0031BC1F /* AccountEditView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AccountEditView.xib; path = Resources/Views/AccountEditView.xib; sourceTree = "<group>"; };
+		2125F0C41161604A0031BC1F /* AccountSelectView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AccountSelectView.xib; path = Resources/Views/AccountSelectView.xib; sourceTree = "<group>"; };
 		21286D0A115E7E5E00669E49 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		2159CAE611406D7200CDD2AC /* EditableDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditableDetailCell.xib; sourceTree = "<group>"; };
 		2186E371115E15D900FAD4ED /* AddZoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddZoneViewController.h; sourceTree = "<group>"; };
 		2186E372115E15D900FAD4ED /* AddZoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddZoneViewController.m; sourceTree = "<group>"; };
-		2186E498115E27B400FAD4ED /* AddSubdomain.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddSubdomain.xib; sourceTree = "<group>"; };
 		2186E49B115E288F00FAD4ED /* AddSubdomainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSubdomainController.h; sourceTree = "<group>"; };
 		2186E49C115E288F00FAD4ED /* AddSubdomainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSubdomainController.m; sourceTree = "<group>"; };
-		2186E90C115E706D00FAD4ED /* SearchDomainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchDomainViewController.h; path = ../SearchDomainViewController.h; sourceTree = "<group>"; };
-		2186E90D115E706D00FAD4ED /* SearchDomainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchDomainViewController.m; path = ../SearchDomainViewController.m; sourceTree = "<group>"; };
-		2186E90E115E706D00FAD4ED /* SearchDomainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchDomainView.xib; sourceTree = "<group>"; };
-		2186E985115E7AB000FAD4ED /* WebView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebView.xib; sourceTree = "<group>"; };
 		219E1FDE113933EB0053BFE8 /* LoopiaAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoopiaAPI.h; sourceTree = "<group>"; };
 		219E1FDF113933EB0053BFE8 /* LoopiaAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoopiaAPI.m; sourceTree = "<group>"; };
-		219E21111139FDC10053BFE8 /* DomainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DomainViewController.h; path = ../DomainViewController.h; sourceTree = "<group>"; };
-		219E21121139FDC10053BFE8 /* DomainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DomainViewController.m; path = ../DomainViewController.m; sourceTree = "<group>"; };
-		219E21131139FDC10053BFE8 /* DomainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DomainView.xib; sourceTree = "<group>"; };
-		219E21A0113A05CB0053BFE8 /* SubDomainDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubDomainDetailViewController.h; path = ../SubDomainDetailViewController.h; sourceTree = "<group>"; };
-		219E21A1113A05CB0053BFE8 /* SubDomainDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubDomainDetailViewController.m; path = ../SubDomainDetailViewController.m; sourceTree = "<group>"; };
-		219E21A2113A05CB0053BFE8 /* SubDomainDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubDomainDetailView.xib; sourceTree = "<group>"; };
-		219E21DA113A7CFC0053BFE8 /* ZoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZoneViewController.h; path = ../ZoneViewController.h; sourceTree = "<group>"; };
-		219E21DB113A7CFC0053BFE8 /* ZoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZoneViewController.m; path = ../ZoneViewController.m; sourceTree = "<group>"; };
-		219E21DC113A7CFC0053BFE8 /* ZoneView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZoneView.xib; sourceTree = "<group>"; };
 		219E2296113A8BB80053BFE8 /* TabeViewControllerWithBackgroundLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabeViewControllerWithBackgroundLoading.h; sourceTree = "<group>"; };
 		219E2297113A8BB80053BFE8 /* TabeViewControllerWithBackgroundLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabeViewControllerWithBackgroundLoading.m; sourceTree = "<group>"; };
 		219E23A5113AA0E40053BFE8 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -143,9 +145,7 @@
 		21F9FAB0113737E200866299 /* NSString+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Util.m"; sourceTree = "<group>"; };
 		28860BE40F44EE6400985440 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		2899E55F0DE3E45000AC0155 /* DomainSelectView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DomainSelectView.xib; sourceTree = "<group>"; };
 		28A0AAE50D9B0CCF005BE974 /* Loopia_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Loopia_Prefix.pch; sourceTree = "<group>"; };
-		28AD735F0D9D9599002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		28C286DF0D94DF7D0034E888 /* DomainSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DomainSelectViewController.h; sourceTree = "<group>"; };
 		28C286E00D94DF7D0034E888 /* DomainSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DomainSelectViewController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -181,18 +181,18 @@
 				21132F9B113F2AC5008E9785 /* AccountEditViewController.m */,
 				28C286DF0D94DF7D0034E888 /* DomainSelectViewController.h */,
 				28C286E00D94DF7D0034E888 /* DomainSelectViewController.m */,
-				219E21111139FDC10053BFE8 /* DomainViewController.h */,
-				219E21121139FDC10053BFE8 /* DomainViewController.m */,
-				219E21A0113A05CB0053BFE8 /* SubDomainDetailViewController.h */,
-				219E21A1113A05CB0053BFE8 /* SubDomainDetailViewController.m */,
-				219E21DA113A7CFC0053BFE8 /* ZoneViewController.h */,
-				219E21DB113A7CFC0053BFE8 /* ZoneViewController.m */,
+				2125F08E11615F4E0031BC1F /* DomainViewController.h */,
+				2125F08F11615F4E0031BC1F /* DomainViewController.m */,
+				2125F09111615F6C0031BC1F /* SubDomainDetailViewController.h */,
+				2125F09211615F6C0031BC1F /* SubDomainDetailViewController.m */,
+				2125F09411615F750031BC1F /* ZoneViewController.h */,
+				2125F09511615F750031BC1F /* ZoneViewController.m */,
 				2186E371115E15D900FAD4ED /* AddZoneViewController.h */,
 				2186E372115E15D900FAD4ED /* AddZoneViewController.m */,
 				2186E49B115E288F00FAD4ED /* AddSubdomainController.h */,
 				2186E49C115E288F00FAD4ED /* AddSubdomainController.m */,
-				2186E90C115E706D00FAD4ED /* SearchDomainViewController.h */,
-				2186E90D115E706D00FAD4ED /* SearchDomainViewController.m */,
+				2125F0B411615FD90031BC1F /* SearchDomainViewController.h */,
+				2125F0B511615FD90031BC1F /* SearchDomainViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -244,6 +244,24 @@
 			);
 			name = MBProgressHUD;
 			path = Vendor/MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		2125F0C71161604D0031BC1F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2125F0C31161604A0031BC1F /* AccountEditView.xib */,
+				2125F0C41161604A0031BC1F /* AccountSelectView.xib */,
+				2125F09A11615FA70031BC1F /* AddSubdomain.xib */,
+				2125F09B11615FA70031BC1F /* DomainSelectView.xib */,
+				2125F09C11615FA70031BC1F /* DomainView.xib */,
+				2125F09D11615FA70031BC1F /* EditableDetailCell.xib */,
+				2125F09E11615FA70031BC1F /* MainWindow.xib */,
+				2125F09F11615FA70031BC1F /* SearchDomainView.xib */,
+				2125F0A011615FA70031BC1F /* SubDomainDetailView.xib */,
+				2125F0A111615FA70031BC1F /* WebView.xib */,
+				2125F0A211615FA70031BC1F /* ZoneView.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		219E20B31139F5160053BFE8 /* LoopiaAPI */ = {
@@ -312,22 +330,12 @@
 		29B97317FDCFA39411CA2CEA /* Resources-iPhone */ = {
 			isa = PBXGroup;
 			children = (
-				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
-				21132D04113EE6EA008E9785 /* AccountSelectView.xib */,
-				21132F9C113F2AC5008E9785 /* AccountEditView.xib */,
-				2899E55F0DE3E45000AC0155 /* DomainSelectView.xib */,
-				219E21131139FDC10053BFE8 /* DomainView.xib */,
-				219E21A2113A05CB0053BFE8 /* SubDomainDetailView.xib */,
-				219E21DC113A7CFC0053BFE8 /* ZoneView.xib */,
+				2125F0C71161604D0031BC1F /* Views */,
 				219E23A5113AA0E40053BFE8 /* Default.png */,
 				8D1107310486CEB800E47090 /* Loopia-Info.plist */,
-				2159CAE611406D7200CDD2AC /* EditableDetailCell.xib */,
-				2186E498115E27B400FAD4ED /* AddSubdomain.xib */,
-				2186E90E115E706D00FAD4ED /* SearchDomainView.xib */,
-				2186E985115E7AB000FAD4ED /* WebView.xib */,
 				21286D0A115E7E5E00669E49 /* icon.png */,
-				2125EC781160C9BF0031BC1F /* manual.html */,
-				2125F03F116152DC0031BC1F /* 37x-Checkmark.png */,
+				2125F0AE11615FC90031BC1F /* 37x-Checkmark.png */,
+				2125F0AF11615FC90031BC1F /* manual.html */,
 			);
 			name = "Resources-iPhone";
 			sourceTree = "<group>";
@@ -392,21 +400,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
-				2899E5600DE3E45000AC0155 /* DomainSelectView.xib in Resources */,
-				219E21151139FDC10053BFE8 /* DomainView.xib in Resources */,
-				219E21A4113A05CB0053BFE8 /* SubDomainDetailView.xib in Resources */,
-				219E21DE113A7CFC0053BFE8 /* ZoneView.xib in Resources */,
 				219E23A6113AA0E40053BFE8 /* Default.png in Resources */,
-				21132D06113EE6EA008E9785 /* AccountSelectView.xib in Resources */,
-				21132F9E113F2AC5008E9785 /* AccountEditView.xib in Resources */,
-				2159CAE711406D7200CDD2AC /* EditableDetailCell.xib in Resources */,
-				2186E499115E27B400FAD4ED /* AddSubdomain.xib in Resources */,
-				2186E910115E706D00FAD4ED /* SearchDomainView.xib in Resources */,
-				2186E986115E7AB000FAD4ED /* WebView.xib in Resources */,
 				21286D0B115E7E5E00669E49 /* icon.png in Resources */,
-				2125EC791160C9BF0031BC1F /* manual.html in Resources */,
-				2125F040116152DC0031BC1F /* 37x-Checkmark.png in Resources */,
+				2125F0A311615FA70031BC1F /* AddSubdomain.xib in Resources */,
+				2125F0A411615FA70031BC1F /* DomainSelectView.xib in Resources */,
+				2125F0A511615FA70031BC1F /* DomainView.xib in Resources */,
+				2125F0A611615FA70031BC1F /* EditableDetailCell.xib in Resources */,
+				2125F0A711615FA70031BC1F /* MainWindow.xib in Resources */,
+				2125F0A811615FA70031BC1F /* SearchDomainView.xib in Resources */,
+				2125F0A911615FA70031BC1F /* SubDomainDetailView.xib in Resources */,
+				2125F0AA11615FA70031BC1F /* WebView.xib in Resources */,
+				2125F0AB11615FA70031BC1F /* ZoneView.xib in Resources */,
+				2125F0B011615FC90031BC1F /* 37x-Checkmark.png in Resources */,
+				2125F0B111615FC90031BC1F /* manual.html in Resources */,
+				2125F0C51161604A0031BC1F /* AccountEditView.xib in Resources */,
+				2125F0C61161604A0031BC1F /* AccountSelectView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,9 +441,6 @@
 				21F9FAB2113737E200866299 /* NSString+Helpers.m in Sources */,
 				21F9FAB3113737E200866299 /* NSString+Util.m in Sources */,
 				219E1FE0113933EB0053BFE8 /* LoopiaAPI.m in Sources */,
-				219E21141139FDC10053BFE8 /* DomainViewController.m in Sources */,
-				219E21A3113A05CB0053BFE8 /* SubDomainDetailViewController.m in Sources */,
-				219E21DD113A7CFC0053BFE8 /* ZoneViewController.m in Sources */,
 				219E2298113A8BB80053BFE8 /* TabeViewControllerWithBackgroundLoading.m in Sources */,
 				21132D05113EE6EA008E9785 /* AccountSelectViewController.m in Sources */,
 				21132DA4113F0FDB008E9785 /* LPAccount.m in Sources */,
@@ -448,8 +453,11 @@
 				21132FA3113F2BFE008E9785 /* EditableDetailCell.m in Sources */,
 				2186E373115E15D900FAD4ED /* AddZoneViewController.m in Sources */,
 				2186E49D115E288F00FAD4ED /* AddSubdomainController.m in Sources */,
-				2186E90F115E706D00FAD4ED /* SearchDomainViewController.m in Sources */,
 				2125ED7A1160E4BA0031BC1F /* MBProgressHUD.m in Sources */,
+				2125F09011615F4E0031BC1F /* DomainViewController.m in Sources */,
+				2125F09311615F6C0031BC1F /* SubDomainDetailViewController.m in Sources */,
+				2125F09611615F750031BC1F /* ZoneViewController.m in Sources */,
+				2125F0B611615FD90031BC1F /* SearchDomainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
