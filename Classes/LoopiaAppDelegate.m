@@ -135,7 +135,8 @@
 -(void)loopiaAPI:(LoopiaAPI*)api respondedWithError:(NSError *)error;
 {
   NSLog(@"Application intercepted error: %@ %@", error, [error userInfo]);
-  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"LoopiaAPI Error" message:[[error userInfo] objectForKey:@"message"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+  NSString *errorMsg = [[error userInfo] objectForKey:@"message"];
+  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"LoopiaAPI Error" message:errorMsg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
   [alert show];
 }
 

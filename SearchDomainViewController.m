@@ -7,7 +7,7 @@
 //
 
 #import "SearchDomainViewController.h"
-
+#import "LoopiaAppDelegate.h"
 
 @implementation SearchDomainViewController
 
@@ -160,6 +160,21 @@
   [super dealloc];
 }
 
+-(NSArray*)suggestionsForTerm:(NSString *)text
+{
+  NSArray *parts = [text componentsSeparatedByString:@"."];
+  NSString *host = [parts objectAtIndex:0];
+  
+  NSArray *topDomains = [@"se com eu nu me net org biz info mobil name tv dk be pl at cc co.uk org.uk" componentsSeparatedByString:@" "];
+  
+  NSMutableArray *suggestions = [NSMutableArray array];
+  for(NSString *top in topDomains){
+    NSString *suggestion = [host stringByAppendingFormat:@".%@", top];
+    [suggestions addObject:suggestion];
+  }
+  return suggestions;
+}
+
 #pragma mark Searchbar
 
 -(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
@@ -175,6 +190,15 @@
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
   [searchBar resignFirstResponder];
+  NSString *text = searchBar.text;
+  NSString *status = [[LoopiaAppDelegate sharedAPI] statusForDomainName:text];
+  NSLog(@"Status: %@", status);
+  
+  NSArray *suggestions = [self suggestionsForTerm:text];
+  for(NSString *suggestion in suggestions){
+    NSString *status = [[LoopiaAppDelegate sharedAPI] statusForDomainName:suggestion];
+    NSLog(@"%@: %@", suggestion, status);
+  }
 }
 
 

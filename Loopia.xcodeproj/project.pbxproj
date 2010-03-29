@@ -24,6 +24,7 @@
 		21132FA3113F2BFE008E9785 /* EditableDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21132FA2113F2BFE008E9785 /* EditableDetailCell.m */; };
 		2125EC791160C9BF0031BC1F /* manual.html in Resources */ = {isa = PBXBuildFile; fileRef = 2125EC781160C9BF0031BC1F /* manual.html */; };
 		2125ED7A1160E4BA0031BC1F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2125ED571160E4BA0031BC1F /* MBProgressHUD.m */; };
+		2125F040116152DC0031BC1F /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 2125F03F116152DC0031BC1F /* 37x-Checkmark.png */; };
 		21286D0B115E7E5E00669E49 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 21286D0A115E7E5E00669E49 /* icon.png */; };
 		2159CAE711406D7200CDD2AC /* EditableDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2159CAE611406D7200CDD2AC /* EditableDetailCell.xib */; };
 		2186E373115E15D900FAD4ED /* AddZoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2186E372115E15D900FAD4ED /* AddZoneViewController.m */; };
@@ -90,6 +91,7 @@
 		2125EC781160C9BF0031BC1F /* manual.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = manual.html; sourceTree = "<group>"; };
 		2125ED561160E4BA0031BC1F /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		2125ED571160E4BA0031BC1F /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		2125F03F116152DC0031BC1F /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark.png"; sourceTree = "<group>"; };
 		21286D0A115E7E5E00669E49 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		2159CAE611406D7200CDD2AC /* EditableDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditableDetailCell.xib; sourceTree = "<group>"; };
 		2186E371115E15D900FAD4ED /* AddZoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddZoneViewController.h; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 				2186E985115E7AB000FAD4ED /* WebView.xib */,
 				21286D0A115E7E5E00669E49 /* icon.png */,
 				2125EC781160C9BF0031BC1F /* manual.html */,
+				2125F03F116152DC0031BC1F /* 37x-Checkmark.png */,
 			);
 			name = "Resources-iPhone";
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				2186E986115E7AB000FAD4ED /* WebView.xib in Resources */,
 				21286D0B115E7E5E00669E49 /* icon.png in Resources */,
 				2125EC791160C9BF0031BC1F /* manual.html in Resources */,
+				2125F040116152DC0031BC1F /* 37x-Checkmark.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,6 +491,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "-DDEBUG";
 				PREBINDING = NO;
 				SDKROOT = iphoneos3.1.2;
 			};

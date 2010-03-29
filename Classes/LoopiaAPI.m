@@ -95,20 +95,32 @@ NSString const * LoopiaDomainDomainConfigurationHOSTING_WINDOWS = @"HOSTING_WIND
     response = nil;
   }
   
-  if(response)
+  if(response){
     if([response isFault]) {
       error = [NSError errorWithDomain:@"se.loopia" 
                                     code:[[response code] intValue] 
                                 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[response fault], @"message", [response object], @"object", nil]];
     } else {
       id obj = [response object];
-      if([obj isEqual:LoopiaDomainStatusAUTH_ERROR] ||
-         ([obj respondsToSelector:@selector(containsObject:)] && [obj containsObject:LoopiaDomainStatusAUTH_ERROR])){
-           error = [NSError errorWithDomain:@"se.loopia" 
-                                         code:[[response code] intValue] 
-                                     userInfo:[NSDictionary dictionaryWithObject:LoopiaDomainStatusAUTH_ERROR forKey:@"message"]];
+      
+      NSArray *errorResponses = [NSArray arrayWithObjects:LoopiaDomainStatusAUTH_ERROR, LoopiaDomainStatusRATE_LIMITED, LoopiaDomainStatusBAD_INDATA, LoopiaDomainStatusUNKNOWN_ERROR, nil];
+      
+      NSString *errorMsg = nil;
+      if([errorResponses containsObject:obj]){
+        errorMsg = obj;
       }
+      if([obj isKindOfClass:[NSArray class]]) {
+        for(id thing in obj){
+          if([errorResponses containsObject:thing]){
+            errorMsg = thing;
+          }
+        }
+      }
+      if(errorMsg)
+        error = [NSError errorWithDomain:@"se.loopia" code:[[response code] intValue] 
+                                userInfo:[NSDictionary dictionaryWithObject:errorMsg forKey:@"message"]];
     }
+  }
   if(error){
     NSLog(@"ERROR!");
     if(delegate && [delegate respondsToSelector:@selector(loopiaAPI:respondedWithError:)])
@@ -174,9 +186,11 @@ NSString const * LoopiaDomainDomainConfigurationHOSTING_WINDOWS = @"HOSTING_WIND
 {
   self.username = username_;
   self.password = password_;
+#ifdef DEBUG
   if ([username_ isEqual:@"test@loopiaapi"]) {
     self.apiEndpointURL = [NSURL URLWithString:@"http://localhost:8080"];
   }
+#endif
 }
 
 -(void)dealloc;
@@ -197,6 +211,7 @@ NSString const * LoopiaDomainDomainConfigurationHOSTING_WINDOWS = @"HOSTING_WIND
 -(NSArray *)domains;
 {
   NSArray *domainInfos = [self call:@"getDomains" args:nil];
+  if(!domainInfos) return nil;
   NSMutableArray *domains = [NSMutableArray array];
   for(NSDictionary *info in domainInfos){
     LPDomain *domain = [[LPDomain alloc] initWithRemoteObject:info];

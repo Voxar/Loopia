@@ -1,72 +1,57 @@
-LoopiaAPI för iPhone/iPad/iPod Touch
+LoopiaAPI for iPhone/iPad/iPod Touch
 ===
-Detta är ett bidrag till Loopias LoopiaAPI-tävling.
+This is an entry for Loopia's LoopiaAPI competition.
 
-Programmet är gratis, öppet och inte på något sätt kvalitetssäkrat. Användande sker därför på egen risk.
+This application is free, open source and by no means quality ensured. Use at your own risk. 
 
-För att installera behöver du en Apple iPhone utvecklarlicens, en Mac och iPhone SDK.
+In order to build and install you will need an Apple iPhone developer licence.
 
-Har du ingen utvecklarlicens kan du maila mig på voxxar@gmail.com så skickar jag en kompilerad version tillsammans med en fil som gör att du kan installera den.
+If you don't have one, email me at voxxar@gmail.com and I'll send you a binary and provision file
 
-Att använda programmet
+Usage
 ===
-Det första du behöver göra är att skapa ett LoopiaAPI-konto under ditt vanliga Loopiakonto
+The first thing you need is a LoopiaAPI account connected to you'r ordinary Loopia account.
 
-Skapa LoopiaAPI konto
+Create LoopiaAPI account
 ---
-1. Logga in på loopia.se
-2. Gå till Kontoinställningar -> LoopiaAPI
-3. Lägg till en användare
-4. Klicka på den nya användaren i listan
-5. Kryssa i alla kryssrutor för att ge kontot rättigheter till de funktioner du vill kunna använda
-  - Kryssa åtminstone i 'getDomains', 'getSubdomains', 'getZoneRecords' samt 'domainIsFree' för att kunna använda de mest grundläggnde funktionerna. Du kommer då kunna titta på dina domän men ej ändra något.
-6. Spara
+1. Log in to loopia.se
+2. Go to Kontoinställningar -> LoopiaAPI
+3. Add an account
+4. Click the new user in the list of accounts
+5. Check all the boxes for the functions you would like to use from the application
+  - At least check the boxes 'getDomains', 'getSubdomains' and 'getZoneRecords' to get the basic functionality. This will grant permissions to view domains and subdomains but not edit them.
+6. Save
 
-Konton
+Accounts
 ---
-Här hanterar du dina LoopiaAPI-konton.
+This is where you manage your accounts
 
-Du kan koppla flera LoopiaAPI-konton till applikationen.
+You can add several accounts to the application
 
-1. Peka på plussikonen längst ned för att lägga till ett konto.
-2. Skriv in ditt LoopiaAPI-kontonamn (utan '@loopiaapi') och lösenord.
-3. Spara
+* Log in to an account by touching it.
+* Touch the plus icon at the bottom to add an account.
+* Edit an account by touching the blue circular button.
+* Swipe a cell or touch the 'Edit' button to remove an account.
 
-&nbsp;
-
-* Du kan ändra ett konto genom att peka på den runda blå knappen till höger om kontonamnet. 
-* Peka på edit om du vill ta bort ett konto.
-* Logga in genom att peka på ett konto.
-
-Domäner
+Domains
 ---
-Här visas alla domäner som är kopplade till det Loopiakonto som ditt LoopiaAPI-konto är kopplat till
+Shows you a sorted list of your domains under the Loopia account connected to the LoopiaAPI account.
 
-* Peka på plussikonen längst ned för att lägga till en domän. Du kommer då till 'Sök domän' dialogen.
-* Peka på 'Edit'-knappen om du vill ta bort en domän
-* Peka på en domän för att se mer information om den.
+* Touch a domain name to view additional information.
 
-Domän
+Domain
 ---
-Här kan du se om du har betalat senaste fakturan, betala en faktura med Loopia-krediter och se alla subdomäner.
+Manage a domain
 
-* Peka på plussikonen längst ned för att lägga till ett subdomän.
-* Peka på 'Edit'-knappen om du vill ta bort subdomän.
-* Peka på ett subdomän om du vill se detaljer för det domänet.
+* Touch 'Pay xxx Kr', if enabled, to pay an invoice using Loopia Pre Paid Credits.
+* Touch a subdomain to view its DNS records
+* Swipe a cell or touch the 'Edit'-button to remove subdomains
+* Touch the plus icon to add a subdomain
 
-Subdomän
+Subdomain
 ---
-Här kan du se alla DNSposter för ett subdomän
+View DNS entries for a subdomain
 
-* Peka på plussikonen längst ned för att lägga till en DNSpost.
-* Peka på 'Edit'-knappen om du vill ta bort en DNSpost.
-* Peka på en DNSpost om du vill se detaljer eller redigera posten.
-
-DNSpost
----
-Här kan du se och redigera en DNSpost
-
-* Ändra DNSpostens typ genom att rulla på hjulet längst ned. 
-* Ändra DNSpostens data, prioritet eller Time-to-live (ttl) genom att peka på dem och ändra i respektive textfält.
-* Peka på 'Spara'-knappen för att spara. 
-* Om du pekar på tillbakaknappen uppe till vänster utan att peka på spara så kommer ändringar inte att sparas.
+* Touch a DNS entry to edit it
+* Swipe a cell or touch the 'Edit'-button to remove DNS entries
+* Touch the plus icon to add a DNS entry

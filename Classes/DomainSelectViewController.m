@@ -12,6 +12,11 @@
 #import "Loopia.h"
 #import "SearchDomainViewController.h"
 
+NSInteger compareDomains(LPDomain *a, LPDomain *b, void *user){
+  return [a.name compare:b.name];
+}
+
+
 @implementation DomainSelectViewController
 
 @synthesize domains;
@@ -21,7 +26,7 @@
 {
   if(![self initWithNibName:@"DomainSelectView" bundle:nil]) return nil;
   
-  self.domains = domains_;
+  self.domains = [domains_ sortedArrayUsingFunction:compareDomains context:nil];
   
   return self;
 }
@@ -41,12 +46,13 @@
   [super viewDidLoad];
 
   self.title = @"Domains";
-  
-  UIBarButtonItem *spaceButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-  UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addDomain)];
-  [self setToolbarItems:[NSArray arrayWithObjects:spaceButton, addButton, nil]];
-  [addButton release];
-  [spaceButton release];
+
+  // No point in adding Domains if you can't search for unoccupied domains. 
+//  UIBarButtonItem *spaceButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+//  UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addDomain)];
+//  [self setToolbarItems:[NSArray arrayWithObjects:spaceButton, addButton, nil]];
+//  [addButton release];
+//  [spaceButton release];
 }
 
 /*

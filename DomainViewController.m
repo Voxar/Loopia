@@ -11,6 +11,10 @@
 #import "LoopiaAppDelegate.h"
 #import "AddSubdomainController.h"
 
+NSInteger compareSubdomains(LPSubdomain *a, LPSubdomain *b, void *user){
+  return [a.name compare:b.name];
+}
+
 @implementation DomainViewController
 
 @synthesize domain, subdomains, progressHud;
@@ -20,8 +24,7 @@
   if(![self initWithNibName:@"DomainView" bundle:nil]) return nil;
   
   self.domain = domain_;
-  self.subdomains = subdomains_;
-  
+  self.subdomains = [subdomains_ sortedArrayUsingFunction:compareSubdomains context:nil];
   return self;
 }
 
@@ -49,10 +52,12 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
   self.title = domain.name;
   
+  BOOL canPay = domain.paid == 0 && domain.referenceNr != -1 && domain.unpaidAmount != 0.0;
+  
   NSLog(@"domainview didload%@", domain);
   statusLabel.text = domain.registered ? @"Registered" : @"Unregistered";
-  payButton.enabled = !domain.paid;
-  [payButton setTitle:domain.paid ? @"Paid" : [NSString stringWithFormat:@"Pay %.2f Kr", domain.unpaidAmount] forState:payButton.state];
+  payButton.enabled = canPay;
+  [payButton setTitle:(canPay ? [NSString stringWithFormat:@"Pay %.2f Kr", domain.unpaidAmount] : @"Paid") forState:payButton.state];
   [payButton setNeedsLayout];
   
   
@@ -101,7 +106,7 @@
 -(void)addSubdomain:(AddSubdomainController*)controller savedSubdomain:(LPSubdomain *)savedSubdomain withSuccess:(BOOL)success;
 {
   if(success){
-    self.subdomains = [subdomains arrayByAddingObject:savedSubdomain];
+    self.subdomains = [[subdomains arrayByAddingObject:savedSubdomain] sortedArrayUsingFunction:compareSubdomains context:nil];
     [self.tableView reloadData];
   }
 }
@@ -170,14 +175,18 @@
     LPDomain *paidDomain = [[LoopiaAppDelegate sharedAPI] domainForDomainName:domain.name];
     success = paidDomain.paid;
     if(success){
+      progressHud.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
+      progressHud.mode = MBProgressHUDModeCustomView;
       progressHud.labelText = @"Success"; 
     } else {
-      progressHud.labelText = @"failed";
+      progressHud.labelText = @"Failed";
     }
 
     sleep(1);
     [self performSelectorOnMainThread:@selector(didPayInvoiceForDomain:) withObject:(success ? paidDomain : nil) waitUntilDone:NO];
   } else {
+    progressHud.labelText = @"Failed";
+    sleep(1);
     [self performSelectorOnMainThread:@selector(didPayInvoiceForDomain:) withObject:nil waitUntilDone:NO];
   }
 }

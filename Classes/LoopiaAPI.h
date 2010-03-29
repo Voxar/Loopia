@@ -57,7 +57,7 @@ extern NSString const * LoopiaDomainDomainConfigurationHOSTING_WINDOWS;
 
 -(void)setUsername:(NSString *)username_ password:(NSString *)password_;
 
--(LPDomain*) domainForDomainName:(NSString *)domainName;
+-(LPDomain*)domainForDomainName:(NSString *)domainName;
 -(NSArray *)domains;
 -(NSString *)statusForDomainName:(NSString *)domainName;
 -(NSArray *)subdomainsForDomainName:(NSString *)domainName;

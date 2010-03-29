@@ -175,6 +175,7 @@
 -(void)navigateToNextPageWithObject:(NSArray *)domains;
 {
   if(!domains) return;
+  NSLog(@"domains: %@", domains);
 //  NSArray *domains = [args objectAtIndex:0];
   DomainSelectViewController *domainView = [[DomainSelectViewController alloc] initWithDomains:domains];
   [self.navigationController pushViewController:domainView animated:YES];
