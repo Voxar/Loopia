@@ -13,7 +13,7 @@
 
 @implementation DomainViewController
 
-@synthesize domain, subdomains, removeSubdomainHud;
+@synthesize domain, subdomains, progressHud;
 
 -(id)initWithDomain:(LPDomain *)domain_ subdomains:(NSArray *)subdomains_;
 {
@@ -108,8 +108,8 @@
 
 - (void)hudWasHidden;
 {
-  [self.removeSubdomainHud removeFromSuperview];
-  self.removeSubdomainHud = nil;
+  [self.progressHud removeFromSuperview];
+  self.progressHud = nil;
 }
 
 /*
@@ -154,11 +154,40 @@
     // e.g. self.myOutlet = nil;
 }
 
+-(void)didPayInvoiceForDomain:(LPDomain *)paidDomain;
+{
+  if(paidDomain){
+    payButton.enabled = NO;
+    [payButton setTitle:@"Paid" forState:UIControlStateDisabled];
+  }
+}
+
+-(void)payInvoice:(NSString *)refNr;
+{
+  BOOL success = [[LoopiaAppDelegate sharedAPI] payInvoiceWithRefNr:refNr];
+  if(success){
+    self.progressHud.labelText = @"Verifying";
+    LPDomain *paidDomain = [[LoopiaAppDelegate sharedAPI] domainForDomainName:domain.name];
+    success = paidDomain.paid;
+    if(success){
+      progressHud.labelText = @"Success"; 
+    } else {
+      progressHud.labelText = @"failed";
+    }
+
+    sleep(1);
+    [self performSelectorOnMainThread:@selector(didPayInvoiceForDomain:) withObject:(success ? paidDomain : nil) waitUntilDone:NO];
+  } else {
+    [self performSelectorOnMainThread:@selector(didPayInvoiceForDomain:) withObject:nil waitUntilDone:NO];
+  }
+}
 
 -(IBAction)payButtonAction:(id)sender;
 {
-  payButton.enabled = NO;
-  [payButton setTitle:@"Paid" forState:UIControlStateDisabled];
+  self.progressHud = [[MBProgressHUD alloc] initWithView:self.view];
+  self.progressHud.labelText = @"Paying";
+  [self.view addSubview:progressHud];
+  [self.progressHud showWhileExecuting:@selector(payInvoice:) onTarget:self withObject:domain.stringReferenceNr animated:YES];
 }
 
 #pragma mark Table view methods
@@ -235,10 +264,10 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
       // Delete the row from the data source
       LPSubdomain *subdomain = [subdomains objectAtIndex:indexPath.row];
-      self.removeSubdomainHud = [[MBProgressHUD alloc] initWithView:self.view];
-      self.removeSubdomainHud.labelText = [NSString stringWithFormat:@"Removing %@", subdomain.name];
-      [self.view addSubview:removeSubdomainHud];
-      [self.removeSubdomainHud showWhileExecuting:@selector(removeSubdomain:) onTarget:self withObject:subdomain animated:YES];
+      self.progressHud = [[MBProgressHUD alloc] initWithView:self.view];
+      self.progressHud.labelText = [NSString stringWithFormat:@"Removing %@", subdomain.name];
+      [self.view addSubview:progressHud];
+      [self.progressHud showWhileExecuting:@selector(removeSubdomain:) onTarget:self withObject:subdomain animated:YES];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view

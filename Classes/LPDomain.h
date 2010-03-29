@@ -22,5 +22,6 @@
 @property (nonatomic, assign) BOOL registered;
 @property (nonatomic, assign) NSInteger referenceNr;
 @property (nonatomic, assign) double unpaidAmount;
+@property (nonatomic, readonly) NSString *stringReferenceNr;
 
 @end

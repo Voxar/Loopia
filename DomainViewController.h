@@ -17,7 +17,7 @@
   LPDomain *domain;
   NSArray *subdomains;
   
-  MBProgressHUD *removeSubdomainHud;
+  MBProgressHUD *progressHud;
   
   IBOutlet UILabel *statusLabel;
   IBOutlet UIButton *payButton;
@@ -25,7 +25,7 @@
 
 @property (nonatomic, retain) LPDomain *domain;
 @property (nonatomic, retain) NSArray *subdomains;
-@property (nonatomic, retain) MBProgressHUD *removeSubdomainHud;
+@property (nonatomic, retain) MBProgressHUD *progressHud;
 
 -(id)initWithDomain:(LPDomain *)domain_ subdomains:(NSArray *)subdomains_;
 

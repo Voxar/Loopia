@@ -188,9 +188,10 @@ NSString const * LoopiaDomainDomainConfigurationHOSTING_WINDOWS = @"HOSTING_WIND
   [super dealloc];
 }
 
--(NSDictionary*) domainForDomainName:(NSString *)domainName;
+-(LPDomain*) domainForDomainName:(NSString *)domainName;
 {
-  return [self call:@"getDomain" args:[NSArray arrayWithObject: domainName]];
+  NSDictionary *domainInfo = [self call:@"getDomain" args:[NSArray arrayWithObject: domainName]];
+  return [[[LPDomain alloc] initWithRemoteObject:domainInfo] autorelease];
 }
 
 -(NSArray *)domains;
@@ -216,6 +217,7 @@ NSString const * LoopiaDomainDomainConfigurationHOSTING_WINDOWS = @"HOSTING_WIND
   for(NSString *subdomainName in infoArray){
     LPSubdomain *subdomain = [[LPSubdomain alloc] initWithRemoteObject:subdomainName];
     [subdomains addObject:subdomain];
+    [subdomain release];
   }
   return subdomains;
 }
@@ -264,6 +266,13 @@ NSString const * LoopiaDomainDomainConfigurationHOSTING_WINDOWS = @"HOSTING_WIND
 {
   id ret = [self call:@"removeZoneRecord" args:[NSArray arrayWithObjects:domainName, subdomainName, zone.record_id, nil]];
   NSLog(@"removeZoneRecord returned %@", ret);
+  return ret != nil;
+}
+
+-(BOOL)payInvoiceWithRefNr:(NSString *)refNr;
+{
+  id ret = [self call:@"payInvoiceUsingCredits" args:[NSArray arrayWithObjects:refNr, nil]];
+  NSLog(@"payInvoiceUsingCredits returned %@", ret);
   return ret != nil;
 }
 

@@ -55,5 +55,9 @@
           nil];
 }
 
+-(NSString *)stringReferenceNr;
+{
+  return [NSString stringWithFormat:@"%d", self.referenceNr];
+}
 
 @end
