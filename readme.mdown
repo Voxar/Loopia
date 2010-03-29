@@ -1,0 +1,57 @@
+LoopiaAPI for iPhone/iPad/iPod Touch
+===
+This is an entry for Loopia's LoopiaAPI competition.
+
+This application is free, open source and by no means quality ensured. Use at your own risk. 
+
+In order to build and install you will need an Apple iPhone developer licence.
+
+If you don't have one, email me at voxxar@gmail.com and I'll send you a binary and provision file
+
+Usage
+===
+The first thing you need is a LoopiaAPI account connected to you'r ordinary Loopia account.
+
+Create LoopiaAPI account
+---
+1. Log in to loopia.se
+2. Go to Kontoinställningar -> LoopiaAPI
+3. Add an account
+4. Click the new user in the list of accounts
+5. Check all the boxes for the functions you would like to use from the application
+  - At least check the boxes 'getDomains', 'getSubdomains' and 'getZoneRecords' to get the basic functionality. This will grant permissions to view domains and subdomains but not edit them.
+6. Save
+
+Accounts
+---
+This is where you manage your accounts
+
+You can add several accounts to the application
+
+* Log in to an account by touching it.
+* Touch the plus icon at the bottom to add an account.
+* Edit an account by touching the blue circular button.
+* Swipe a cell or touch the 'Edit' button to remove an account.
+
+Domains
+---
+Shows you a sorted list of your domains under the Loopia account connected to the LoopiaAPI account.
+
+* Touch a domain name to view additional information.
+
+Domain
+---
+Manage a domain
+
+* Touch 'Pay xxx Kr', if enabled, to pay an invoice using Loopia Pre Paid Credits.
+* Touch a subdomain to view its DNS records
+* Swipe a cell or touch the 'Edit'-button to remove subdomains
+* Touch the plus icon to add a subdomain
+
+Subdomain
+---
+View DNS entries for a subdomain
+
+* Touch a DNS entry to edit it
+* Swipe a cell or touch the 'Edit'-button to remove DNS entries
+* Touch the plus icon to add a DNS entry

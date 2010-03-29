@@ -1,9 +1,0 @@
-LoopiaAPI for iPhone/iPad/iPod Touch
-===
-This is an entry for Loopia's LoopiaAPI competition.
-
-This application is free, open source and by no means quality ensured. Use at your own risk. 
-
-In order to build and install you will need an Apple iPhone developer licence.
-
-If you don't have one, email me at voxxar@gmail.com and I'll send you a binary and provision file

@@ -116,6 +116,13 @@
   api = [[LoopiaAPI alloc] init];
   [api setUsername:username password:password];
   api.delegate = self;
+  
+#ifdef DEBUG
+  if ([username isEqual:@"test@loopiaapi"]) {
+    api.apiEndpointURL = [NSURL URLWithString:@"http://localhost:8080"];
+  }
+#endif
+  
 }
 
 #pragma mark -

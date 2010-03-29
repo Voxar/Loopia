@@ -186,11 +186,6 @@ NSString const * LoopiaDomainDomainConfigurationHOSTING_WINDOWS = @"HOSTING_WIND
 {
   self.username = username_;
   self.password = password_;
-#ifdef DEBUG
-  if ([username_ isEqual:@"test@loopiaapi"]) {
-    self.apiEndpointURL = [NSURL URLWithString:@"http://localhost:8080"];
-  }
-#endif
 }
 
 -(void)dealloc;

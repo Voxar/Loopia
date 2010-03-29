@@ -56,6 +56,7 @@
 
 -(void)saveAction;
 {
+  if(textField.text.length == 0) return;
   [textField resignFirstResponder];
   self.saveProgressHud = [[MBProgressHUD alloc] initWithView:self.view];
   self.saveProgressHud.labelText = @"Saving";
