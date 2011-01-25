@@ -18,4 +18,6 @@
 
 -(id)initWithDomains:(NSArray *)domains_;
 
+-(void)didAddDomain;
+
 @end

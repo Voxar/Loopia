@@ -60,6 +60,7 @@ extern NSString const * LoopiaDomainDomainConfigurationHOSTING_WINDOWS;
 -(LPDomain*)domainForDomainName:(NSString *)domainName;
 -(NSArray *)domains;
 -(NSString *)statusForDomainName:(NSString *)domainName;
+-(BOOL)domainIsFree:(NSString *)domainName;
 -(NSArray *)subdomainsForDomainName:(NSString *)domainName;
 -(NSArray *)zoneRecordsForDomainName:(NSString*)domainName subdomainName:(NSString *)subdomain; 
 -(BOOL)updateZoneRecord:(LPDNSEntry *)record forDomainName:(NSString *)domainName subdomainName:(NSString*)subdomain;
@@ -68,7 +69,5 @@ extern NSString const * LoopiaDomainDomainConfigurationHOSTING_WINDOWS;
 -(BOOL)removeSubdomainName:(NSString*)subdomain forDomainName:(NSString *)domain;
 -(BOOL)removeZoneRecord:(LPDNSEntry*)zone forDomainName:(NSString *)domainName subdomainName:(NSString *)subdomainName;
 -(BOOL)payInvoiceWithRefNr:(NSString *)refNr;
-/* not yet implemented:
-addDomainToAccount
-*/
+-(BOOL)addDomainToAccount:(NSString *)domainName buy:(BOOL)buy;
 @end

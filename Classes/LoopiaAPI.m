@@ -15,6 +15,11 @@
 #import "LPDomain.h"
 #import "LPSubdomain.h"
 
+NSString const * LoopiaResponseOK = @"OK";
+NSString const * LoopiaResponseRATE_LIMITED = @"RATE_LIMITED";
+NSString const * LoopiaResponseBAD_INDATA = @"BAD_INDATA";
+NSString const * LoopiaResponseUNKNOWN_ERROR = @"UNKNOWN_ERROR";
+
 NSString const * LoopiaDomainStatusOK = @"OK";
 NSString const * LoopiaDomainStatusOCCUPIED = @"OCCUPIED";
 NSString const * LoopiaDomainStatusAUTH_ERROR = @"AUTH_ERROR";
@@ -156,10 +161,10 @@ NSString const * LoopiaDomainDomainConfigurationHOSTING_WINDOWS = @"HOSTING_WIND
     XMLRPCRequest *request = [[XMLRPCRequest alloc] initWithHost:apiEndpointURL];
     [request setMethod:method withObjects:arguments];
     XMLRPCResponse *result = [XMLRPCConnection sendSynchronousXMLRPCRequest:request];
-    NSLog(@"response: %@", [result object]);
     if([self checkErrors:result]){
       return nil;
     }
+    NSLog(@"response: %@", [result object]);
     return [result object];
   }
   return nil;
@@ -218,6 +223,11 @@ NSString const * LoopiaDomainDomainConfigurationHOSTING_WINDOWS = @"HOSTING_WIND
 -(NSString *) statusForDomainName:(NSString *)domainName;
 {
   return (NSString *)[self call:@"domainIsFree" args:[NSArray arrayWithObject:domainName]];
+}
+
+-(BOOL)domainIsFree:(NSString *)domainName;
+{
+  return [[self statusForDomainName:domainName] isEqual:LoopiaDomainStatusOK];
 }
 
 -(NSArray *)subdomainsForDomainName:(NSString *)domain;
@@ -284,6 +294,13 @@ NSString const * LoopiaDomainDomainConfigurationHOSTING_WINDOWS = @"HOSTING_WIND
   id ret = [self call:@"payInvoiceUsingCredits" args:[NSArray arrayWithObjects:refNr, nil]];
   NSLog(@"payInvoiceUsingCredits returned %@", ret);
   return ret != nil;
+}
+
+-(BOOL)addDomainToAccount:(NSString *)domainName buy:(BOOL)buy;
+{
+  id ret = [self call:@"addDomainToAccount" args:[NSArray arrayWithObjects:domainName, buy ? @"true" : @"false",  nil]];
+  NSLog(@"addDomainToAccount returned %@", ret);
+  return ret != nil;  
 }
 
 @end

@@ -93,16 +93,20 @@
   helpView = nil;
 }
 
-/**
- applicationWillTerminate: saves changes in the application's managed object context before the application terminates.
- */
-- (void)applicationWillTerminate:(UIApplication *)application {
+
+-(void)saveAccounts{
   NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
   NSLog(@"Saving accounts: %@", accounts);
   NSData *data = [NSKeyedArchiver archivedDataWithRootObject:accounts];
   [userDefaults setObject:data forKey:@"accounts"];
   [userDefaults synchronize];
-  NSLog(@"TEMINATED");
+}
+
+-(void)applicationWillResignActive:(UIApplication *)application{
+  [self saveAccounts];
+}
+- (void)applicationWillTerminate:(UIApplication *)application {
+  [self saveAccounts];
 }
 
 

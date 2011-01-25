@@ -10,7 +10,8 @@
 #import "LoopiaAppDelegate.h"
 #import "DomainViewController.h"
 #import "Loopia.h"
-#import "SearchDomainViewController.h"
+#import "AddDomainViewController.h"
+#import "MBProgressHUD.h"
 
 NSInteger compareDomains(LPDomain *a, LPDomain *b, void *user){
   return [a.name compare:b.name];
@@ -31,9 +32,24 @@ NSInteger compareDomains(LPDomain *a, LPDomain *b, void *user){
   return self;
 }
 
+-(void)doRefresh;
+{
+  self.domains = [[[LoopiaAppDelegate sharedAPI] domains] sortedArrayUsingFunction:compareDomains context:nil];
+  [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+}
+
+-(void)didAddDomain;
+{
+  //refresh view
+  MBProgressHUD *hud = [[[MBProgressHUD alloc] initWithView:self.view] autorelease];
+  [self.view addSubview:hud];
+  hud.labelText = @"Refreshing";
+  [hud showWhileExecuting:@selector(doRefresh) onTarget:self withObject:nil animated:YES];
+}
+
 -(void)addDomain;
 {
-  SearchDomainViewController *addDomainController = [[SearchDomainViewController alloc] initWithNibName:@"AddDomainView" bundle:nil];
+  AddDomainViewController *addDomainController = [[AddDomainViewController alloc] init];
   UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:addDomainController];
   
   [self presentModalViewController:nav animated:YES];
@@ -48,11 +64,11 @@ NSInteger compareDomains(LPDomain *a, LPDomain *b, void *user){
   self.title = @"Domains";
 
   // No point in adding Domains if you can't search for unoccupied domains. 
-//  UIBarButtonItem *spaceButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-//  UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addDomain)];
-//  [self setToolbarItems:[NSArray arrayWithObjects:spaceButton, addButton, nil]];
-//  [addButton release];
-//  [spaceButton release];
+  UIBarButtonItem *spaceButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+  UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addDomain)];
+  [self setToolbarItems:[NSArray arrayWithObjects:spaceButton, addButton, nil]];
+  [addButton release];
+  [spaceButton release];
 }
 
 /*

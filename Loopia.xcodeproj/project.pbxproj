@@ -39,11 +39,14 @@
 		2125F0C51161604A0031BC1F /* AccountEditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2125F0C31161604A0031BC1F /* AccountEditView.xib */; };
 		2125F0C61161604A0031BC1F /* AccountSelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2125F0C41161604A0031BC1F /* AccountSelectView.xib */; };
 		21286D0B115E7E5E00669E49 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 21286D0A115E7E5E00669E49 /* icon.png */; };
+		21545D80116D397800A40F9E /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21545D7F116D397800A40F9E /* Entitlements.plist */; };
 		2186E373115E15D900FAD4ED /* AddZoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2186E372115E15D900FAD4ED /* AddZoneViewController.m */; };
 		2186E49D115E288F00FAD4ED /* AddSubdomainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2186E49C115E288F00FAD4ED /* AddSubdomainController.m */; };
 		219E1FE0113933EB0053BFE8 /* LoopiaAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 219E1FDF113933EB0053BFE8 /* LoopiaAPI.m */; };
 		219E2298113A8BB80053BFE8 /* TabeViewControllerWithBackgroundLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 219E2297113A8BB80053BFE8 /* TabeViewControllerWithBackgroundLoading.m */; };
 		219E23A6113AA0E40053BFE8 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 219E23A5113AA0E40053BFE8 /* Default.png */; };
+		21BE516711BFFDDF0099DAED /* AddDomainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21BE516611BFFDDF0099DAED /* AddDomainView.xib */; };
+		21BE516A11BFFF130099DAED /* AddDomainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21BE516911BFFF130099DAED /* AddDomainViewController.m */; };
 		21F9FA9C113737BD00866299 /* XMLValueDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F9FA8F113737BD00866299 /* XMLValueDecoder.m */; };
 		21F9FA9D113737BD00866299 /* XMLRPCConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F9FA91113737BD00866299 /* XMLRPCConnection.m */; };
 		21F9FA9E113737BD00866299 /* XMLRPCDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F9FA93113737BD00866299 /* XMLRPCDecoder.m */; };
@@ -56,7 +59,6 @@
 		21F9FAB1113737E200866299 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F9FAAC113737E200866299 /* NSData+Base64.m */; };
 		21F9FAB2113737E200866299 /* NSString+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F9FAAE113737E200866299 /* NSString+Helpers.m */; };
 		21F9FAB3113737E200866299 /* NSString+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F9FAB0113737E200866299 /* NSString+Util.m */; };
-		28860BE50F44EE6400985440 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28860BE40F44EE6400985440 /* CoreData.framework */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		28C286E10D94DF7D0034E888 /* DomainSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* DomainSelectViewController.m */; };
 /* End PBXBuildFile section */
@@ -110,6 +112,7 @@
 		2125F0C31161604A0031BC1F /* AccountEditView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AccountEditView.xib; path = Resources/Views/AccountEditView.xib; sourceTree = "<group>"; };
 		2125F0C41161604A0031BC1F /* AccountSelectView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AccountSelectView.xib; path = Resources/Views/AccountSelectView.xib; sourceTree = "<group>"; };
 		21286D0A115E7E5E00669E49 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		21545D7F116D397800A40F9E /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		2186E371115E15D900FAD4ED /* AddZoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddZoneViewController.h; sourceTree = "<group>"; };
 		2186E372115E15D900FAD4ED /* AddZoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddZoneViewController.m; sourceTree = "<group>"; };
 		2186E49B115E288F00FAD4ED /* AddSubdomainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSubdomainController.h; sourceTree = "<group>"; };
@@ -119,6 +122,9 @@
 		219E2296113A8BB80053BFE8 /* TabeViewControllerWithBackgroundLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabeViewControllerWithBackgroundLoading.h; sourceTree = "<group>"; };
 		219E2297113A8BB80053BFE8 /* TabeViewControllerWithBackgroundLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabeViewControllerWithBackgroundLoading.m; sourceTree = "<group>"; };
 		219E23A5113AA0E40053BFE8 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		21BE516611BFFDDF0099DAED /* AddDomainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddDomainView.xib; sourceTree = "<group>"; };
+		21BE516811BFFF130099DAED /* AddDomainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDomainViewController.h; sourceTree = "<group>"; };
+		21BE516911BFFF130099DAED /* AddDomainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDomainViewController.m; sourceTree = "<group>"; };
 		21F9FA8E113737BD00866299 /* XMLValueDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLValueDecoder.h; sourceTree = "<group>"; };
 		21F9FA8F113737BD00866299 /* XMLValueDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLValueDecoder.m; sourceTree = "<group>"; };
 		21F9FA90113737BD00866299 /* XMLRPCConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLRPCConnection.h; sourceTree = "<group>"; };
@@ -143,7 +149,6 @@
 		21F9FAAE113737E200866299 /* NSString+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Helpers.m"; sourceTree = "<group>"; };
 		21F9FAAF113737E200866299 /* NSString+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Util.h"; sourceTree = "<group>"; };
 		21F9FAB0113737E200866299 /* NSString+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Util.m"; sourceTree = "<group>"; };
-		28860BE40F44EE6400985440 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28A0AAE50D9B0CCF005BE974 /* Loopia_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Loopia_Prefix.pch; sourceTree = "<group>"; };
 		28C286DF0D94DF7D0034E888 /* DomainSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DomainSelectViewController.h; sourceTree = "<group>"; };
@@ -160,7 +165,6 @@
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
-				28860BE50F44EE6400985440 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +181,8 @@
 				21132D02113EE6EA008E9785 /* AccountSelectViewController.h */,
 				21132D03113EE6EA008E9785 /* AccountSelectViewController.m */,
 				21132F9A113F2AC5008E9785 /* AccountEditViewController.h */,
+				21BE516811BFFF130099DAED /* AddDomainViewController.h */,
+				21BE516911BFFF130099DAED /* AddDomainViewController.m */,
 				21132F9B113F2AC5008E9785 /* AccountEditViewController.m */,
 				28C286DF0D94DF7D0034E888 /* DomainSelectViewController.h */,
 				28C286E00D94DF7D0034E888 /* DomainSelectViewController.m */,
@@ -259,6 +265,7 @@
 				2125F0A011615FA70031BC1F /* SubDomainDetailView.xib */,
 				2125F0A111615FA70031BC1F /* WebView.xib */,
 				2125F0A211615FA70031BC1F /* ZoneView.xib */,
+				21BE516611BFFDDF0099DAED /* AddDomainView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -313,6 +320,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources-iPhone */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				21545D7F116D397800A40F9E /* Entitlements.plist */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -346,7 +354,6 @@
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
-				28860BE40F44EE6400985440 /* CoreData.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -378,6 +385,7 @@
 			isa = PBXProject;
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Loopia" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -415,6 +423,8 @@
 				2125F0B111615FC90031BC1F /* manual.html in Resources */,
 				2125F0C51161604A0031BC1F /* AccountEditView.xib in Resources */,
 				2125F0C61161604A0031BC1F /* AccountSelectView.xib in Resources */,
+				21545D80116D397800A40F9E /* Entitlements.plist in Resources */,
+				21BE516711BFFDDF0099DAED /* AddDomainView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,6 +468,7 @@
 				2125F09311615F6C0031BC1F /* SubDomainDetailViewController.m in Sources */,
 				2125F09611615F750031BC1F /* ZoneViewController.m in Sources */,
 				2125F0B611615FD90031BC1F /* SearchDomainViewController.m in Sources */,
+				21BE516A11BFFF130099DAED /* AddDomainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,6 +502,36 @@
 			};
 			name = Release;
 		};
+		2135F549116D33B400DA8FBB /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos4.2;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Distribution;
+		};
+		2135F54A116D33B400DA8FBB /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Patrik Sj�berg";
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Loopia_Prefix.pch;
+				INFOPLIST_FILE = "Loopia-Info.plist";
+				PRODUCT_NAME = Loopia;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DEE921C6-D20F-4D01-880F-2A17156CA527";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Distribution;
+		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -501,7 +542,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_CFLAGS = "-DDEBUG";
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.1.2;
+				SDKROOT = iphoneos4.2;
 			};
 			name = Debug;
 		};
@@ -514,7 +555,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.1.2;
+				SDKROOT = iphoneos4.2;
 			};
 			name = Release;
 		};
@@ -526,6 +567,7 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
+				2135F54A116D33B400DA8FBB /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -535,6 +577,7 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
+				2135F549116D33B400DA8FBB /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

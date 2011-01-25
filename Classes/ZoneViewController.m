@@ -39,6 +39,9 @@
   [super viewDidLoad];
   self.title = @"Edit record";
   self.navigationItem.rightBarButtonItem = saveButton;
+  
+  NSUInteger index = [[self dnsRecordTypes] indexOfObject:self.entry.type];
+  [typePicker selectRow:index inComponent:0 animated:NO];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -106,7 +109,7 @@
   [UIView setAnimationDuration:0.3];
   [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
   typePicker.bounds = bounds;
-  [UIView commitAnimations];  
+  [UIView commitAnimations];
 }
 
 -(void)hidePicker;
